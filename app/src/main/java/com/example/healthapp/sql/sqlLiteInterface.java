@@ -17,6 +17,7 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         // See this article for more information: http://bit.ly/6LRzfx
         if (sInstance == null) {
             sInstance = new sqlLiteInterface(context);
+            clear(sInstance.getWritableDatabase());
         }
         return sInstance;
     }
@@ -49,7 +50,18 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         }
     }
 
-    private String [] do_create_table_string(){
+    public static void clear(SQLiteDatabase db) {
+        String [] end = drop_table();
+        for(int i=0;i<end.length;i++){
+            db.execSQL(end[i]);
+        }
+        String [] start = do_create_table_string();
+        for(int i=0;i<start.length;i++){
+            db.execSQL(start[i]);
+        }
+    }
+
+    private static String [] do_create_table_string(){
         String [] creating = new String [6];
         creating[0] =  "create table food (id int primary key not null, user_id int not null, category int not null, name char(50) not null, protein numeric not null, fat numeric not null, cholesterol numeric not null, calories numeric not null);";
         creating[1] = "create table user (id int primary key not null, name char(50) not null, password char(15) not null, height numeric not null, gender char(1) not null, birthday varchar(8) not null, question char(50) not null, answer char(50) not null);";
@@ -60,7 +72,7 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         return creating;
     }
 
-    private String [] drop_table(){
+    private static String [] drop_table(){
         String [] droping = new String [6];
         droping[0] = "drop table if exists food;";
         droping[1] = "drop table if exists user;";
