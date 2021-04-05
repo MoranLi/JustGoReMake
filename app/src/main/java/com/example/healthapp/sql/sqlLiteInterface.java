@@ -9,8 +9,24 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "JustGo";
 
-    public sqlLiteInterface (Context context){
+    private static sqlLiteInterface sInstance;
+
+    public static synchronized sqlLiteInterface getInstance(Context context) {
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null) {
+            sInstance = new sqlLiteInterface(context);
+        }
+        return sInstance;
+    }
+
+    private sqlLiteInterface (Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static SQLiteDatabase getDatabase(){
+        return sInstance.getWritableDatabase();
     }
 
     @Override

@@ -9,13 +9,7 @@ import com.example.healthapp.sql.sqlLiteInterface;
 
 public class weightRepo {
 
-    private static SQLiteDatabase db;
-
-    public weightRepo(Context context){
-        if(db == null) {
-            db = new sqlLiteInterface(context).getWritableDatabase();
-        }
-    }
+    private static SQLiteDatabase db = sqlLiteInterface.getDatabase();
 
     public static int insert(weight w){
         ContentValues values = new ContentValues();

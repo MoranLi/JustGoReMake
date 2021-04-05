@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.healthapp.R;
 import com.example.healthapp.globalValue;
+import com.example.healthapp.sql.sqlLiteInterface;
 import com.example.healthapp.sqlInteraction.userRepo;
 
 public class forgetPasswordActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class forgetPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sqlLiteInterface.getInstance(this);
         setContentView(R.layout.activity_forget_password);
         ((TextView)findViewById(R.id.username_show)).setText(globalValue.getCurrentUserName());
         String [] qa = userRepo.getInfoByName(globalValue.getCurrentUserName());

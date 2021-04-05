@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp.globalValue;
+import com.example.healthapp.sql.sqlLiteInterface;
 import com.example.healthapp.sqlInteraction.userRepo;
 import com.example.healthapp.sqlInteraction.weightRepo;
 
@@ -34,18 +35,7 @@ public class loginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activivty);
-        this.deleteDatabase("JustGo");
-        /*
-        if(current_user.getInfoByName("admin") == null){
-            current_user.add_admin_user();
-        }
-        int past_user = current_user.get_user_num();
-        for(int i=1;i<=past_user;i++){
-            current_user.delete_by_id(i);
-        }
-        */
-        new userRepo(this);
-        new weightRepo(this);
+        sqlLiteInterface.getInstance(this);
         login = (Button)findViewById(R.id.login);
         login.setOnClickListener(login());
         register = (Button)findViewById(R.id.signup);

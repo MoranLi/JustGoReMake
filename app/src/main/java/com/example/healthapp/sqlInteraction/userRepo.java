@@ -17,14 +17,7 @@ import static android.content.ContentValues.TAG;
 
 public class userRepo {
 
-    private static SQLiteDatabase db;
-
-    public userRepo(Context context){
-        if(db == null) {
-            db = new sqlLiteInterface(context).getWritableDatabase();
-            create_admin_user(0);
-        }
-    }
+    private static SQLiteDatabase db = sqlLiteInterface.getDatabase();
 
     public static int insert(user user) {
         ContentValues values = new ContentValues();
