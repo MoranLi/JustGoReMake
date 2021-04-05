@@ -24,7 +24,6 @@ public class forgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         sqlLiteInterface.getInstance(this);
         setContentView(R.layout.activity_forget_password);
-        ((TextView)findViewById(R.id.username_show)).setText(globalValue.getCurrentUserName());
         String [] qa = userRepo.getInfoByName(globalValue.getCurrentUserName());
         ((TextView)findViewById(R.id.security_question_show)).setText(qa[0]);
         securityAnswer = qa[1];
