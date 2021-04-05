@@ -1,4 +1,4 @@
-package com.example.justgo.sql;
+package com.example.healthapp.sql;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

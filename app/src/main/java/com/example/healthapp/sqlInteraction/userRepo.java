@@ -1,4 +1,4 @@
-package com.example.justgo.sqlInteraction;
+package com.example.healthapp.sqlInteraction;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.justgo.datatype.user;
-import com.example.justgo.globalValue;
-import com.example.justgo.sql.sqlLiteInterface;
+import com.example.healthapp.datatype.user;
+import com.example.healthapp.globalValue;
+import com.example.healthapp.sql.sqlLiteInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;

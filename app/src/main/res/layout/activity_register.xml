@@ -80,6 +80,31 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:hint="input your height here"
+            android:inputType="number"
+            android:maxLines="1"
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/weight_input"
+            >
+
+            <TextView
+                android:id="@+id/weightView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="67dp"
+                android:text="Weight"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/weight_register_layout"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:hint="input your weight here"
+            android:inputType="number"
             android:maxLines="1"
             />
 

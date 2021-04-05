@@ -1,6 +1,6 @@
-package com.example.justgo;
+package com.example.healthapp;
 
-import com.example.justgo.datatype.user;
+import com.example.healthapp.datatype.user;
 
 import org.junit.Test;
 

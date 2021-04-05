@@ -9,84 +9,89 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/colorPrimaryDark"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="135dp"
-        tools:ignore="MissingConstraints">
+        android:background="@color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-178dp"
+        tools:layout_editor_absoluteY="128dp">
 
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="87dp"
-            app:srcCompat="@drawable/logo1"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="87dp"
+            app:srcCompat="@drawable/logo1" />
 
         <EditText
             android:id="@+id/username"
             android:layout_width="200dp"
             android:layout_height="50dp"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignStart="@+id/password"
+            android:layout_alignLeft="@+id/password"
             android:background="@color/colorAccent"
             android:hint="UserName"
             android:inputType="text"
             android:maxLines="1"
-            android:textColorHint="@color/aqua"
-            android:layout_below="@+id/imageView4"
-            android:layout_alignStart="@+id/password"
-            android:layout_alignLeft="@+id/password" />
+            android:textColorHint="@color/aqua" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="200dp"
             android:layout_height="50dp"
+            android:layout_below="@+id/username"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
             android:background="@color/colorAccent"
             android:hint="Password"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:textColorHint="@color/white"
-            android:layout_below="@+id/username"
-            android:layout_centerHorizontal="true" />
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="94dp"
-            android:text="login"
-            android:layout_alignParentLeft="true" />
+            android:text="login" />
 
         <Button
             android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="signup"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="47dp"
-            android:layout_alignParentLeft="true" />
+            android:text="signup" />
 
         <Button
             android:id="@+id/forgetPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="forget password"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true" />
+            android:text="forget password" />
 
-        <ImageView
+        <TextView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/justgo_icon2"
-            android:layout_alignParentTop="true"
+            android:layout_width="fill_parent"
+            android:layout_height="200px"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Health App"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="48dp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            />
 
 
     </RelativeLayout>

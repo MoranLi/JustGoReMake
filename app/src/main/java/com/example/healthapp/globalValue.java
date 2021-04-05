@@ -1,9 +1,19 @@
-package com.example.justgo;
+package com.example.healthapp;
 
 public class globalValue {
     private static int currentUserId = 0;
     private static int currentMaxUserId = 0;
     private static String currentUserName = "";
+    private static int currentWeightId = 0;
+
+    public static int getCurrentWeightId() {
+        return currentWeightId;
+    }
+
+    public static void setCurrentWeightId(int currentWeightId) {
+        globalValue.currentWeightId = currentWeightId;
+    }
+
     public static int getCurrentUserId() {
         return currentUserId;
     }

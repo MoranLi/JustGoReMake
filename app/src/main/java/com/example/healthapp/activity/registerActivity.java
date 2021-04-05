@@ -1,4 +1,4 @@
-package com.example.justgo.activity;
+package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,12 +12,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.justgo.R;
-import com.example.justgo.datatype.user;
-import com.example.justgo.globalValue;
-import com.example.justgo.sqlInteraction.userRepo;
+import com.example.healthapp.R;
+import com.example.healthapp.datatype.user;
+import com.example.healthapp.datatype.weight;
+import com.example.healthapp.globalValue;
+import com.example.healthapp.sqlInteraction.userRepo;
+import com.example.healthapp.sqlInteraction.weightRepo;
 
-import java.util.ArrayList;
+import java.util.Date;
 
 public class registerActivity extends AppCompatActivity {
 
@@ -26,6 +28,8 @@ public class registerActivity extends AppCompatActivity {
     EditText password;
 
     EditText height;
+
+    EditText weight;
 
     RadioGroup gender;
 
@@ -37,7 +41,7 @@ public class registerActivity extends AppCompatActivity {
 
     Button submit;
 
-    com.example.justgo.datatype.user user;
+    com.example.healthapp.datatype.user user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class registerActivity extends AppCompatActivity {
         name = (EditText)findViewById(R.id.username_textedit);
         password =(EditText)findViewById(R.id.password_register_layout);
         height = (EditText) findViewById(R.id.height_register_layout);
+        weight = (EditText) findViewById(R.id.weight_register_layout);
         gender = (RadioGroup)findViewById(R.id.choose_gender);
         birthday = (DatePicker)findViewById(R.id.birthday_Picker);
         question = (EditText)findViewById(R.id.security_question_register_layout);
@@ -59,8 +64,11 @@ public class registerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 user = new user();
-                user.setId(globalValue.getCurrentMaxUserId());
+                com.example.healthapp.datatype.weight w  = new weight();
+                int userId = globalValue.getCurrentMaxUserId();
                 globalValue.setCurrentMaxUserId(globalValue.getCurrentMaxUserId()+1);
+                user.setId(userId);
+                w.setUser_id(userId);
                 user.setName(name.getText().toString());
                 user.setHeight(Double.parseDouble(height.getText().toString()));
                 user.setPassword(password.getText().toString());
@@ -96,7 +104,14 @@ public class registerActivity extends AppCompatActivity {
                 user.setSecurityQuestion(questionStr);
                 user.setSecurityAnswer(answerStr);;
                 userRepo.insert(user);
-                Intent unit_intent = new Intent(get_self(),mainMenuActivity.class);
+
+                w.setId(globalValue.getCurrentWeightId());
+                globalValue.setCurrentWeightId(globalValue.getCurrentWeightId()+1);
+                w.setDate(new Date().toString());
+                w.setWeight(Double.parseDouble(weight.getText().toString()));
+                weightRepo.insert(w);
+
+                Intent unit_intent = new Intent(get_self(),loginActivity.class);
                 startActivity(unit_intent);
             }
         };

@@ -1,14 +1,11 @@
-package com.example.justgo.activity;
+package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-import com.example.justgo.R;
+import com.example.healthapp.R;
 
 public class mainMenuActivity extends AppCompatActivity {
 

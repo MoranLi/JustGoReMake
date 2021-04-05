@@ -1,11 +1,10 @@
-package com.example.justgo;
+package com.example.healthapp;
 
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import com.example.justgo.globalValue;
 public class globalValueTest {
 
     @Test

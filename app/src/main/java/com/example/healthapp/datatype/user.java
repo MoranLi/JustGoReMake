@@ -1,4 +1,4 @@
-package com.example.justgo.datatype;
+package com.example.healthapp.datatype;
 
 public class user {
     private int id;

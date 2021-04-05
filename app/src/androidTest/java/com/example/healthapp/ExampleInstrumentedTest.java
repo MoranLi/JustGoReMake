@@ -1,4 +1,4 @@
-package com.example.justgo;
+package com.example.healthapp;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.justgo.activity;
+package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.justgo.R;
-import com.example.justgo.globalValue;
-import com.example.justgo.sqlInteraction.userRepo;
+import com.example.healthapp.R;
+import com.example.healthapp.globalValue;
+import com.example.healthapp.sqlInteraction.userRepo;
+import com.example.healthapp.sqlInteraction.weightRepo;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,6 +45,7 @@ public class loginActivity extends AppCompatActivity {
         }
         */
         new userRepo(this);
+        new weightRepo(this);
         login = (Button)findViewById(R.id.login);
         login.setOnClickListener(login());
         register = (Button)findViewById(R.id.signup);
