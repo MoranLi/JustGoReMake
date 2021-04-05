@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">JustGO</string>
+    <string name="previous">previous</string>
+    <string name="action_settings">settings</string>
+    <string name="next">next</string>
+    <string name="first_fragment_label">first</string>
+    <string name="hello_first_fragment">hello</string>
+    <string name="second_fragment_label">second</string>
+</resources>
