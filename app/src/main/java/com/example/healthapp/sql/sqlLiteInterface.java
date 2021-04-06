@@ -1,3 +1,6 @@
+/**
+ * class used for dealing with database
+ */
 package com.example.healthapp.sql;
 
 import android.content.Context;
@@ -11,10 +14,12 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
 
     private static sqlLiteInterface sInstance;
 
+    /**
+     * create database interface
+     * @param context activity
+     * @return
+     */
     public static synchronized sqlLiteInterface getInstance(Context context) {
-        // Use the application context, which will ensure that you
-        // don't accidentally leak an Activity's context.
-        // See this article for more information: http://bit.ly/6LRzfx
         if (sInstance == null) {
             sInstance = new sqlLiteInterface(context);
             clear(sInstance.getWritableDatabase());
@@ -22,14 +27,26 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         return sInstance;
     }
 
+    /**
+     *constructor
+     * @param context activity
+     */
     private sqlLiteInterface (Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     *get database
+     * @return database
+     */
     public static SQLiteDatabase getDatabase(){
         return sInstance.getWritableDatabase();
     }
 
+    /**
+     * initialize the database
+     * @param db database
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String [] end = drop_table();
@@ -42,6 +59,12 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * upgrade the database
+     * @param db   databse
+     * @param oldVersion old version number
+     * @param newVersion new version number
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String [] end = drop_table();
@@ -50,6 +73,10 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * clean and initialize the database
+     * @param db database
+     */
     public static void clear(SQLiteDatabase db) {
         String [] end = drop_table();
         for(int i=0;i<end.length;i++){
@@ -61,6 +88,9 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * create the table
+     */
     private static String [] do_create_table_string(){
         String [] creating = new String [6];
         creating[0] =  "create table food (id int primary key not null, user_id int not null, category int not null, name char(50) not null, protein numeric not null, fat numeric not null, cholesterol numeric not null, calories numeric not null);";
@@ -72,6 +102,9 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
         return creating;
     }
 
+    /**
+     * delete the table
+     */
     private static String [] drop_table(){
         String [] droping = new String [6];
         droping[0] = "drop table if exists food;";

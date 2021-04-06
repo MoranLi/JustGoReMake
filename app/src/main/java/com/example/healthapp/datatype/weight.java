@@ -1,3 +1,6 @@
+/**
+ * class that generate weight information that will be used in the future
+ */
 package com.example.healthapp.datatype;
 
 public class weight {

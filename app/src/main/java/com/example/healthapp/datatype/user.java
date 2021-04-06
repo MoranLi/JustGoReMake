@@ -1,3 +1,6 @@
+/**
+ * class that generate functions to get user info
+ */
 package com.example.healthapp.datatype;
 
 public class user {

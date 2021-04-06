@@ -1,3 +1,6 @@
+/**
+ * The class for all functions needed in login page
+ */
 package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +34,10 @@ public class loginActivity extends AppCompatActivity {
 
     String password;
 
+    /**
+     * basic layout for login page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +54,9 @@ public class loginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * function for login button
+     */
     private View.OnClickListener login(){
         return new View.OnClickListener() {
             @Override
@@ -83,6 +93,9 @@ public class loginActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * function for signup button
+     */
     private View.OnClickListener signup(){
         return new View.OnClickListener() {
             @Override
@@ -93,6 +106,9 @@ public class loginActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * function for forget password button
+     */
     private View.OnClickListener forgetPassword(){
         return new View.OnClickListener() {
             @Override
@@ -112,6 +128,9 @@ public class loginActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * used to navigate to other activity
+     */
     private Activity getItSelf(){
         return this;
     }

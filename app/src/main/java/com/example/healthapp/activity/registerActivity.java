@@ -1,3 +1,6 @@
+/**
+ * The class for all function used in sign up page
+ */
 package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +46,10 @@ public class registerActivity extends AppCompatActivity {
 
     com.example.healthapp.datatype.user user;
 
+    /**
+     * generate basic layout for the sign up page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +66,10 @@ public class registerActivity extends AppCompatActivity {
         submit.setOnClickListener(add_user());
     }
 
+    /**
+     * get basic user information and add to the database
+     * @return
+     */
     private View.OnClickListener add_user (){
         return new View.OnClickListener() {
             @Override
@@ -117,6 +128,9 @@ public class registerActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * used to navigate to other activity
+     */
     private Context get_self(){
         return registerActivity.this;
     }
