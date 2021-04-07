@@ -1,3 +1,6 @@
+/**
+ * unit test for test the user information
+ */
 package com.example.healthapp;
 
 import com.example.healthapp.datatype.user;

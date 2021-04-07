@@ -1,3 +1,6 @@
+/**
+ * Unit tests for test global values
+ */
 package com.example.healthapp;
 
 
@@ -6,7 +9,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class globalValueTest {
-
     @Test
     public void assertGlobalId(){
         assertEquals(globalValue.getCurrentUserId(),0);

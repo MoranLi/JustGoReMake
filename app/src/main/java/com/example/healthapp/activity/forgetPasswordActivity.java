@@ -1,3 +1,6 @@
+/**
+ * The class for all functions needed in forget password page
+ */
 package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,10 @@ public class forgetPasswordActivity extends AppCompatActivity {
 
     String securityAnswer;
 
+    /**
+     * generate basic layout for forget password page
+     * @param savedInstanceState constructor
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +37,9 @@ public class forgetPasswordActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.changePassword)).setOnClickListener(updatePassword());
     }
 
+    /**
+     * function used to update password
+     */
     private View.OnClickListener updatePassword (){
         return new View.OnClickListener() {
             @Override
@@ -49,6 +59,9 @@ public class forgetPasswordActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * used to navigate to other activity
+     */
     private Activity getItSelf(){
         return this;
     }
