@@ -7,16 +7,53 @@
     tools:context=".activity.mainMenuActivity">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/white"
         tools:layout_editor_absoluteX="-36dp"
         tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/go_to_food"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:Text="Food"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/go_to_exercise"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:Text="Exercise"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/go_to_weight"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:Text="Weight"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/go_to_recommdation"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:Text="Recommdation"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/go_to_user_info"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:Text="User Profile"
+            android:layout_gravity="center_horizontal"/>
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

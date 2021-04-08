@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JustGo">
-        <activity android:name=".activity.userInfoActivity"></activity>
+        <activity android:name=".activity.weightActivity"></activity>
+        <activity android:name=".activity.recommdationActivity" />
+        <activity android:name=".activity.exerciseActivity" />
+        <activity android:name=".activity.foodActivity" />
+        <activity android:name=".activity.userInfoActivity" />
         <activity android:name=".activity.forgetPasswordActivity" />
         <activity android:name=".activity.mainMenuActivity" />
         <activity android:name=".activity.registerActivity" />
