@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JustGo">
-        <activity android:name="com.example.healthapp.activity.forgetPasswordActivity"></activity>
-        <activity android:name="com.example.healthapp.activity.mainMenuActivity" />
-        <activity android:name="com.example.healthapp.activity.registerActivity" />
+        <activity android:name=".activity.userInfoActivity"></activity>
+        <activity android:name=".activity.forgetPasswordActivity" />
+        <activity android:name=".activity.mainMenuActivity" />
+        <activity android:name=".activity.registerActivity" />
         <activity
-            android:name="com.example.healthapp.activity.loginActivity"
+            android:name=".activity.loginActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.JustGo.NoActionBar">
             <intent-filter>
