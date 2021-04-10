@@ -5,15 +5,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.healthapp.datatype.food;
-import com.example.healthapp.sql.sqlLiteInterface;
+import com.example.healthapp.datatype.Food;
+import com.example.healthapp.sql.SqlLiteInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
 
-public class foodRepo {
+public class FoodRepo {
     private String [] meats = {"beef","pork","mutton","chicken"};
     private String [] vegetables = {"cabbage","eggplant","cucumber","mushroom"};
     private String [] fruits = {"apple","pear","peach","berry"};
@@ -21,9 +21,9 @@ public class foodRepo {
     private String [] fats = {"canola oil","corn oil","peanut oil","butter"};
     private String [] grains= {"wheat","rice","barley","oat"};
 
-    private static SQLiteDatabase db = sqlLiteInterface.getDatabase();
+    private static SQLiteDatabase db = SqlLiteInterface.getDatabase();
 
-    public int insert(food food) {
+    public int insert(Food food) {
         ContentValues values = new ContentValues();
         values.put("id",food.getId());
         values.put("user_id",food.getUser_id());
@@ -50,7 +50,7 @@ public class foodRepo {
         db.close();
     }
 
-    public void update(food food) {
+    public void update(Food food) {
         ContentValues values = new ContentValues();
         values.put("id",food.getId());
         values.put("user_id",food.getUser_id());
@@ -64,8 +64,8 @@ public class foodRepo {
         db.close();
     }
 
-    private food cretae_default_meats(int i){
-        food a_food = new food();
+    private Food cretae_default_meats(int i){
+        Food a_food = new Food();
         a_food.setId(i);
         a_food.setName(meats[i]);
         a_food.setCalories(Math.random());
@@ -77,8 +77,8 @@ public class foodRepo {
         return a_food;
     }
 
-    private food cretae_default_fruits(int i){
-        food a_food = new food();
+    private Food cretae_default_fruits(int i){
+        Food a_food = new Food();
         a_food.setId(i+meats.length);
         a_food.setName(fruits[i]);
         a_food.setCalories(Math.random());
@@ -90,8 +90,8 @@ public class foodRepo {
         return a_food;
     }
 
-    private food cretae_default_vegetables(int i){
-        food a_food = new food();
+    private Food cretae_default_vegetables(int i){
+        Food a_food = new Food();
         a_food.setId(i+meats.length+fruits.length);
         a_food.setName(vegetables[i]);
         a_food.setCalories(Math.random());
@@ -103,8 +103,8 @@ public class foodRepo {
         return a_food;
     }
 
-    private food cretae_default_dairys(int i){
-        food a_food = new food();
+    private Food cretae_default_dairys(int i){
+        Food a_food = new Food();
         a_food.setId(i+meats.length+fruits.length+vegetables.length);
         a_food.setName(dairys[i]);
         a_food.setCalories(Math.random());
@@ -115,8 +115,8 @@ public class foodRepo {
         a_food.setProtein(Math.random());
         return a_food;
     }
-    private food cretae_default_grains(int i){
-        food a_food = new food();
+    private Food cretae_default_grains(int i){
+        Food a_food = new Food();
         a_food.setId(i+meats.length+fruits.length+vegetables.length+dairys.length);
         a_food.setName(grains[i]);
         a_food.setCalories(Math.random());
@@ -127,8 +127,8 @@ public class foodRepo {
         a_food.setProtein(Math.random());
         return a_food;
     }
-    private food cretae_default_fats(int i){
-        food a_food = new food();
+    private Food cretae_default_fats(int i){
+        Food a_food = new Food();
         a_food.setId(i+meats.length+fruits.length+vegetables.length+dairys.length+grains.length);
         a_food.setName(fats[i]);
         a_food.setCalories(Math.random());

@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JustGo">
-        <activity android:name=".activity.weightActivity"></activity>
-        <activity android:name=".activity.recommdationActivity" />
-        <activity android:name=".activity.exerciseActivity" />
-        <activity android:name=".activity.foodActivity" />
-        <activity android:name=".activity.userInfoActivity" />
-        <activity android:name=".activity.forgetPasswordActivity" />
-        <activity android:name=".activity.mainMenuActivity" />
-        <activity android:name=".activity.registerActivity" />
+        <activity android:name=".activity.WeightActivity"></activity>
+        <activity android:name=".activity.RecommdationActivity" />
+        <activity android:name=".activity.ExerciseActivity" />
+        <activity android:name=".activity.FoodActivity" />
+        <activity android:name=".activity.UserInfoActivity" />
+        <activity android:name=".activity.ForgetPasswordActivity" />
+        <activity android:name=".activity.MainMenuActivity" />
+        <activity android:name=".activity.RegisterActivity" />
         <activity
-            android:name=".activity.loginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.JustGo.NoActionBar">
             <intent-filter>

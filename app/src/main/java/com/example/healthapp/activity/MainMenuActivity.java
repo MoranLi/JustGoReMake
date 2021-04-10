@@ -11,9 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.healthapp.R;
-
-public class mainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity {
 
     /**
      * basic layout for menu page
@@ -22,19 +20,19 @@ public class mainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
-        ((Button)findViewById(R.id.go_to_food)).setOnClickListener(addFood());
-        ((Button)findViewById(R.id.go_to_exercise)).setOnClickListener(addExercise());
-        ((Button)findViewById(R.id.go_to_weight)).setOnClickListener(addWeight());
-        ((Button)findViewById(R.id.go_to_recommdation)).setOnClickListener(goRecommdation());
-        ((Button)findViewById(R.id.go_to_user_info)).setOnClickListener(changeProfile());
+        setContentView(com.example.healthapp.R.layout.activity_main_menu);
+        ((Button)findViewById(com.example.healthapp.R.id.go_to_food)).setOnClickListener(addFood());
+        ((Button)findViewById(com.example.healthapp.R.id.go_to_exercise)).setOnClickListener(addExercise());
+        ((Button)findViewById(com.example.healthapp.R.id.go_to_weight)).setOnClickListener(addWeight());
+        ((Button)findViewById(com.example.healthapp.R.id.go_to_recommdation)).setOnClickListener(goRecommdation());
+        ((Button)findViewById(com.example.healthapp.R.id.go_to_user_info)).setOnClickListener(changeProfile());
     }
 
     private View.OnClickListener addFood() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), foodActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), FoodActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -44,7 +42,7 @@ public class mainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), exerciseActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), ExerciseActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -54,7 +52,7 @@ public class mainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), weightActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), WeightActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -64,7 +62,7 @@ public class mainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), recommdationActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), RecommdationActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -74,7 +72,7 @@ public class mainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), userInfoActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), UserInfoActivity.class);
                 startActivity(unit_intent);
             }
         };

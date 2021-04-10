@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.mainMenuActivity">
+    tools:context=".activity.MainMenuActivity">
 
 
     <LinearLayout
@@ -21,36 +21,41 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="100dp"
-            android:Text="Food"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal">
+            Food
+        </Button>
         <Button
             android:id="@+id/go_to_exercise"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
-            android:Text="Exercise"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal">
+            Exercise
+        </Button>
         <Button
             android:id="@+id/go_to_weight"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
-            android:Text="Weight"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal">
+            Weight
+        </Button>
         <Button
             android:id="@+id/go_to_recommdation"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
-            android:Text="Recommdation"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal">
+            Recommdation
+        </Button>
         <Button
             android:id="@+id/go_to_user_info"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
-            android:Text="User Profile"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal">
+            User Profile
+        </Button>
 
 
 

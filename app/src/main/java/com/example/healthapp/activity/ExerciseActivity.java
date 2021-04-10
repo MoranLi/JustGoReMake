@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.healthapp.R;
 
-public class exerciseActivity extends AppCompatActivity {
+public class ExerciseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

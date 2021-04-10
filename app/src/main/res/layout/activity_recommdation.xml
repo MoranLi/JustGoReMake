@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.recommdationActivity">
+    tools:context=".activity.RecommdationActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+        This is recommodation
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

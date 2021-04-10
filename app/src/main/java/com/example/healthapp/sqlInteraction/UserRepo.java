@@ -1,25 +1,24 @@
 package com.example.healthapp.sqlInteraction;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.healthapp.datatype.user;
-import com.example.healthapp.globalValue;
-import com.example.healthapp.sql.sqlLiteInterface;
+import com.example.healthapp.datatype.User;
+import com.example.healthapp.GlobalValue;
+import com.example.healthapp.sql.SqlLiteInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
 
-public class userRepo {
+public class UserRepo {
 
-    private static SQLiteDatabase db = sqlLiteInterface.getDatabase();
+    private static SQLiteDatabase db = SqlLiteInterface.getDatabase();
 
-    public static int insert(user user) {
+    public static int insert(User user) {
         ContentValues values = new ContentValues();
         values.put("id",user.getId());
         values.put("name",user.getName());
@@ -33,8 +32,8 @@ public class userRepo {
         return (int) user_Id;
     }
 
-    private user create_admin_user(int id){
-        user admin = new user();
+    private User create_admin_user(int id){
+        User admin = new User();
         admin.setId(id);
         admin.setName("admin");
         admin.setPassword("admina");
@@ -126,29 +125,29 @@ public class userRepo {
 
     public static void update_password (String password) {
         ContentValues values = new ContentValues();
-        values.put("id", globalValue.getCurrentUserId());
+        values.put("id", GlobalValue.getCurrentUserId());
         values.put("password",password);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(globalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
     public static void update_height (Double height) {
         ContentValues values = new ContentValues();
-        values.put("id", globalValue.getCurrentUserId());
+        values.put("id", GlobalValue.getCurrentUserId());
         values.put("height",height);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(globalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
     public static void update_weight (Double weight) {
         ContentValues values = new ContentValues();
-        values.put("id", globalValue.getCurrentUserId());
+        values.put("id", GlobalValue.getCurrentUserId());
         values.put("weight",weight);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(globalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
     public static void update_gender (String gender) {
         ContentValues values = new ContentValues();
-        values.put("id", globalValue.getCurrentUserId());
+        values.put("id", GlobalValue.getCurrentUserId());
         values.put("gender",gender);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(globalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 }

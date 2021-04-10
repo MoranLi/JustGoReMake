@@ -3,7 +3,7 @@
  */
 package com.example.healthapp.datatype;
 
-public class weight {
+public class Weight {
     private int id;
     private int user_id;
     private String date;

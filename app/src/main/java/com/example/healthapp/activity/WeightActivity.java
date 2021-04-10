@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.healthapp.R;
 
-public class foodActivity extends AppCompatActivity {
+public class WeightActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food);
+        setContentView(R.layout.activity_weight);
     }
 }

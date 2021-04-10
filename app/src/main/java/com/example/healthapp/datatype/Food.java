@@ -1,6 +1,6 @@
 package com.example.healthapp.datatype;
 
-public class food {
+public class Food {
     private int id;
     private int user_id;
     private int category;

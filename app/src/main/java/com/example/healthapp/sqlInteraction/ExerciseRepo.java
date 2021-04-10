@@ -5,24 +5,24 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.healthapp.datatype.exercise;
-import com.example.healthapp.sql.sqlLiteInterface;
+import com.example.healthapp.datatype.Exercise;
+import com.example.healthapp.sql.SqlLiteInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
 
-public class exerciseRepo {
+public class ExerciseRepo {
     private String [] endurance = {"run","walk","dance"};
     private String [] strength = {"arm raise","chair dip","leg raise"};
     private String [] balance = {"balance walk","stand on one foot","tai chi"};
     private String [] flexibility = {"yoga","buddy stretch","calf"};
 
-    private static SQLiteDatabase db = sqlLiteInterface.getDatabase();
+    private static SQLiteDatabase db = SqlLiteInterface.getDatabase();
 
-    private exercise cretae_default_endurance(int i){
-        exercise ex = new exercise();
+    private Exercise cretae_default_endurance(int i){
+        Exercise ex = new Exercise();
         ex.setId(i);
         ex.setCategory(0);
         ex.setName(endurance[i]);
@@ -30,8 +30,8 @@ public class exerciseRepo {
         return ex;
     }
 
-    private exercise cretae_default_strength(int i){
-        exercise ex = new exercise();
+    private Exercise cretae_default_strength(int i){
+        Exercise ex = new Exercise();
         ex.setId(i);
         ex.setCategory(1);
         ex.setName(strength[i-3]);
@@ -39,8 +39,8 @@ public class exerciseRepo {
         return ex;
     }
 
-    private exercise cretae_default_balance(int i){
-        exercise ex = new exercise();
+    private Exercise cretae_default_balance(int i){
+        Exercise ex = new Exercise();
         ex.setId(i);
         ex.setCategory(2);
         ex.setName(balance[i-6]);
@@ -48,8 +48,8 @@ public class exerciseRepo {
         return ex;
     }
 
-    private exercise cretae_default_flexibility(int i){
-        exercise ex = new exercise();
+    private Exercise cretae_default_flexibility(int i){
+        Exercise ex = new Exercise();
         ex.setId(i);
         ex.setCategory(3);
         ex.setName(flexibility[i-9]);
@@ -57,7 +57,7 @@ public class exerciseRepo {
         return ex;
     }
 
-    public int insert(exercise ex) {
+    public int insert(Exercise ex) {
         ContentValues values = new ContentValues();
         values.put("id", ex.getId());
         values.put("name", ex.getName());

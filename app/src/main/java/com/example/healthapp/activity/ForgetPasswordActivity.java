@@ -14,11 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.healthapp.R;
-import com.example.healthapp.globalValue;
-import com.example.healthapp.sql.sqlLiteInterface;
-import com.example.healthapp.sqlInteraction.userRepo;
+import com.example.healthapp.GlobalValue;
+import com.example.healthapp.sql.SqlLiteInterface;
+import com.example.healthapp.sqlInteraction.UserRepo;
 
-public class forgetPasswordActivity extends AppCompatActivity {
+public class ForgetPasswordActivity extends AppCompatActivity {
 
     String securityAnswer;
 
@@ -29,9 +29,9 @@ public class forgetPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sqlLiteInterface.getInstance(this);
+        SqlLiteInterface.getInstance(this);
         setContentView(R.layout.activity_forget_password);
-        String [] qa = userRepo.getInfoByName(globalValue.getCurrentUserName());
+        String [] qa = UserRepo.getInfoByName(GlobalValue.getCurrentUserName());
         ((TextView)findViewById(R.id.security_question_show)).setText(qa[0]);
         securityAnswer = qa[1];
         ((Button)findViewById(R.id.changePassword)).setOnClickListener(updatePassword());
@@ -52,8 +52,8 @@ public class forgetPasswordActivity extends AppCompatActivity {
                 if(newPass.length() == 0){
                     return;
                 }
-                userRepo.update_password(newPass);
-                Intent unit_intent = new Intent(getItSelf(),loginActivity.class);
+                UserRepo.update_password(newPass);
+                Intent unit_intent = new Intent(getItSelf(), LoginActivity.class);
                 startActivity(unit_intent);
             }
         };

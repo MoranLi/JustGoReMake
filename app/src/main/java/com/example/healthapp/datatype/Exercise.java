@@ -1,6 +1,6 @@
 package com.example.healthapp.datatype;
 
-public class exercise {
+public class Exercise {
     private int id;
     private String name;
     private int category;

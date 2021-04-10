@@ -12,14 +12,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.healthapp.R;
-import com.example.healthapp.datatype.weight;
-import com.example.healthapp.globalValue;
-import com.example.healthapp.sqlInteraction.userRepo;
-import com.example.healthapp.sqlInteraction.weightRepo;
+import com.example.healthapp.datatype.Weight;
+import com.example.healthapp.GlobalValue;
+import com.example.healthapp.sqlInteraction.UserRepo;
+import com.example.healthapp.sqlInteraction.WeightRepo;
 
 import java.util.Date;
 
-public class userInfoActivity extends AppCompatActivity {
+public class UserInfoActivity extends AppCompatActivity {
 
     Button password;
 
@@ -39,7 +39,7 @@ public class userInfoActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), forgetPasswordActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), ForgetPasswordActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -66,19 +66,19 @@ public class userInfoActivity extends AppCompatActivity {
                     weight_change = true;
                 }
                 if(height_change){
-                    userRepo.update_height(Double.parseDouble(new_height));
+                    UserRepo.update_height(Double.parseDouble(new_height));
                 }
                 if(weight_change){
-                    com.example.healthapp.datatype.weight w = new weight();
+                    Weight w = new Weight();
                     w.setDate(new Date().toString());
-                    w.setUser_id(globalValue.getCurrentUserId());
-                    w.setId(globalValue.getCurrentWeightId());
+                    w.setUser_id(GlobalValue.getCurrentUserId());
+                    w.setId(GlobalValue.getCurrentWeightId());
                     w.setWeight(Double.parseDouble(new_weight));
-                    weightRepo.insert(w);
+                    WeightRepo.insert(w);
                 }
                 RadioButton genders = (RadioButton)findViewById( ((RadioGroup)findViewById(R.id.gender_change_group)).getCheckedRadioButtonId());
-                userRepo.update_gender(genders.getText().toString());
-                Intent unit_intent = new Intent(getItSelf(), mainMenuActivity.class);
+                UserRepo.update_gender(genders.getText().toString());
+                Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
                 startActivity(unit_intent);
             }
         };

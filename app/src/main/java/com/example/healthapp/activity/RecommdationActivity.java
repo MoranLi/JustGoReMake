@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.healthapp.R;
 
-public class recommdationActivity extends AppCompatActivity {
+public class RecommdationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommdation);
+        setContentView(com.example.healthapp.R.layout.activity_recommdation);
     }
 }
