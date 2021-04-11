@@ -31,7 +31,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SqlLiteInterface.getInstance(this);
         setContentView(R.layout.activity_forget_password);
-        String [] qa = UserRepo.getInfoByName(GlobalValue.getCurrentUserName());
+        String [] qa = UserRepo.getInfoByName(GlobalValue.getCurrentUserName(), getItSelf());
         ((TextView)findViewById(R.id.security_question_show)).setText(qa[0]);
         securityAnswer = qa[1];
         ((Button)findViewById(R.id.changePassword)).setOnClickListener(updatePassword());
@@ -52,7 +52,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 if(newPass.length() == 0){
                     return;
                 }
-                UserRepo.update_password(newPass);
+                UserRepo.update_password(newPass, getItSelf());
                 Intent unit_intent = new Intent(getItSelf(), LoginActivity.class);
                 startActivity(unit_intent);
             }

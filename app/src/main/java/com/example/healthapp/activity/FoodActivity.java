@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.healthapp.R;
 import com.example.healthapp.adapter.NormalExpandAdapter;
 import com.example.healthapp.adapter.OnGroupExpandedListener;
+import com.example.healthapp.datatype.Food;
 import com.example.healthapp.sqlInteraction.FoodRepo;
 
 import java.util.ArrayList;
@@ -20,8 +21,6 @@ import java.util.LinkedList;
 
 public class FoodActivity extends AppCompatActivity {
     private static final String TAG = "NormalExpandActivity";
-
-    FoodRepo getFoods;
 
     LinkedList<String> meats;
 
@@ -61,8 +60,8 @@ public class FoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
-        getFoods = new FoodRepo();
-        ArrayList defaults = getFoods.get_default_food_list();
+        FoodRepo.add_default_food(getItSelf());
+        ArrayList defaults = FoodRepo.get_default_food_list(getItSelf());
         meats = new LinkedList<>();
         vegetables = new LinkedList<>();
         fruits = new LinkedList<>();

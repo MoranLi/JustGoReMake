@@ -114,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String answerStr = answer.getText().toString();
                 user.setSecurityQuestion(questionStr);
                 user.setSecurityAnswer(answerStr);;
-                UserRepo.insert(user);
+                UserRepo.insert(get_self(),user);
 
                 w.setId(GlobalValue.getCurrentWeightId());
                 GlobalValue.setCurrentWeightId(GlobalValue.getCurrentWeightId()+1);

@@ -1,6 +1,7 @@
 package com.example.healthapp.sqlInteraction;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -16,9 +17,7 @@ import static android.content.ContentValues.TAG;
 
 public class UserRepo {
 
-    private static SQLiteDatabase db = SqlLiteInterface.getDatabase();
-
-    public static int insert(User user) {
+    public static int insert(Context context, User user) {
         ContentValues values = new ContentValues();
         values.put("id",user.getId());
         values.put("name",user.getName());
@@ -28,33 +27,14 @@ public class UserRepo {
         values.put("birthday",user.getBirthday());
         values.put("question",user.getSecurityQuestion());
         values.put("answer",user.getSecurityAnswer());
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         long user_Id = db.insert("user", null, values);
         return (int) user_Id;
     }
 
-    private User create_admin_user(int id){
-        User admin = new User();
-        admin.setId(id);
-        admin.setName("admin");
-        admin.setPassword("admina");
-        admin.setHeight((Math.random())*100);
-        admin.setGender("M");
-        admin.setBirthday("19991231");
-        admin.setSecurityQuestion("name");
-        admin.setSecurityAnswer("adminb");
-        return admin;
-    }
-
-    public static void delete_by_id(int user_Id) {
-        db.delete("user", "id" + "= ?", new String[] { String.valueOf(user_Id) });
-    }
-
-    public void add_admin_user(){
-        insert(create_admin_user(0));
-    }
-
-    public static int check_user_login(String input_name,String input_password) {
+    public static int check_user_login(Context context, String input_name,String input_password) {
         String selectQuery =  "select * from user where name = '"+input_name+"'";
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
@@ -71,9 +51,10 @@ public class UserRepo {
         return -1;
     }
 
-    public static ArrayList<HashMap<String, String>> get_user_list() {
+    public static ArrayList<HashMap<String, String>> get_user_list(Context context) {
         String selectQuery =  "select * from user";
         ArrayList<HashMap<String, String>> userList = new ArrayList<HashMap<String, String>>();
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Log.d(TAG, "get_default_user_list: "+db.toString());
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
@@ -95,20 +76,8 @@ public class UserRepo {
         return userList;
     }
 
-    public static int  get_user_num() {
-        String selectQuery =  "select * from user";
-        int num = 0;
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        if (cursor.moveToFirst()) {
-            do {
-                num++;
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return num;
-    }
-
-    public static String[] getInfoByName(String name){
+    public static String[] getInfoByName(String name, Context context){
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         String selectQuery =  "select * from user where name = \"" + name + "\"";
         String [] datas = {"","",""};
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -123,28 +92,24 @@ public class UserRepo {
         }
     }
 
-    public static void update_password (String password) {
+    public static void update_password(String password, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
         values.put("password",password);
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_height (Double height) {
+    public static void update_height(Double height, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
         values.put("height",height);
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_weight (Double weight) {
-        ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
-        values.put("weight",weight);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
-    }
-
-    public static void update_gender (String gender) {
+    public static void update_gender(String gender, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
         values.put("gender",gender);

@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    int id = UserRepo.check_user_login(username,password);
+                    int id = UserRepo.check_user_login(getItSelf(),username,password);
                     if (id >= 0) {
                         GlobalValue.setCurrentUserId(id);
                         Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
@@ -116,11 +116,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.length() == 0){
                     return;
                 }
-                if(UserRepo.getInfoByName(username) == null){
+                if(UserRepo.getInfoByName(username, getItSelf()) == null){
                     return;
                 }
                 GlobalValue.setCurrentUserName(username);
-                GlobalValue.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username)[2]));
+                GlobalValue.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username, getItSelf())[2]));
                 Intent unit_intent = new Intent(getItSelf(), ForgetPasswordActivity.class);
                 startActivity(unit_intent);
             }

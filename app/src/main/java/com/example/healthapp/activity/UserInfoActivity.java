@@ -66,7 +66,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     weight_change = true;
                 }
                 if(height_change){
-                    UserRepo.update_height(Double.parseDouble(new_height));
+                    UserRepo.update_height(Double.parseDouble(new_height), getItSelf());
                 }
                 if(weight_change){
                     Weight w = new Weight();
@@ -77,7 +77,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     WeightRepo.insert(w);
                 }
                 RadioButton genders = (RadioButton)findViewById( ((RadioGroup)findViewById(R.id.gender_change_group)).getCheckedRadioButtonId());
-                UserRepo.update_gender(genders.getText().toString());
+                UserRepo.update_gender(genders.getText().toString(), getItSelf());
                 Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
                 startActivity(unit_intent);
             }
