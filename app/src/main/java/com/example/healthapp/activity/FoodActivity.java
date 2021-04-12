@@ -56,6 +56,8 @@ public class FoodActivity extends AppCompatActivity {
 
     public static String[][] specific;
 
+    private ArrayList<HashMap<String,String>> defaults;
+
     /**
      * create component
      * @param savedInstanceState
@@ -66,7 +68,7 @@ public class FoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food);
         // init foods
         FoodRepo.add_default_food(getItSelf());
-        ArrayList defaults = FoodRepo.get_default_food_list(getItSelf());
+        defaults = FoodRepo.get_default_food_list(getItSelf());
         meats = new LinkedList<>();
         vegetables = new LinkedList<>();
         fruits = new LinkedList<>();
@@ -163,7 +165,12 @@ public class FoodActivity extends AppCompatActivity {
         listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(FoodActivity.this, specific[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
+                for(int i = 0; i < defaults.size();i ++){
+                    if (defaults.get(i).get("name").equals(specific[groupPosition][childPosition])){
+                        Toast.makeText(FoodActivity.this, defaults.get(i).get("name").toString(), Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                }
                 return true;
             }
         });
