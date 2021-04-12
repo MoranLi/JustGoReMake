@@ -26,25 +26,25 @@ import java.util.Date;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText name;
+    private EditText name;
 
-    EditText password;
+    private EditText password;
 
-    EditText height;
+    private EditText height;
 
-    EditText weight;
+    private EditText weight;
 
-    RadioGroup gender;
+    private RadioGroup gender;
 
-    DatePicker birthday;
+    private DatePicker birthday;
 
-    EditText question;
+    private EditText question;
 
-    EditText answer;
+    private EditText answer;
 
-    Button submit;
+    private Button submit;
 
-    User user;
+    private User user;
 
     /**
      * generate basic layout for the sign up page

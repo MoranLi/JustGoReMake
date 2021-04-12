@@ -38,7 +38,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
             android:layout_gravity="center_horizontal"
-            android:text="weight"
+            android:text="goal of user"
         />
         <Button
             android:id="@+id/go_to_recommdation"

@@ -21,7 +21,7 @@ import com.example.healthapp.sqlInteraction.UserRepo;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
 
-    String securityAnswer;
+    private String securityAnswer;
 
     /**
      * generate basic layout for forget password page

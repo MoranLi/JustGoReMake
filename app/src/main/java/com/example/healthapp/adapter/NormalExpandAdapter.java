@@ -11,6 +11,9 @@ import com.example.healthapp.R;
 
 import java.util.LinkedList;
 
+/**
+ * adapter class for list views
+ */
 public class NormalExpandAdapter extends BaseExpandableListAdapter {
     private static final String TAG = "NormalExpandableListAda";
     private String[] groupData;

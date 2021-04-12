@@ -21,10 +21,14 @@ import java.util.Date;
 
 public class UserInfoActivity extends AppCompatActivity {
 
-    Button password;
+    private Button password;
 
-    Button submit;
+    private Button submit;
 
+    /**
+     * create component
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,10 @@ public class UserInfoActivity extends AppCompatActivity {
         submit.setOnClickListener(submit_change());
     }
 
+    /**
+     * change password event
+     * @return
+     */
     private View.OnClickListener changePassword() {
         return new View.OnClickListener() {
             @Override
@@ -45,6 +53,10 @@ public class UserInfoActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * sumbit change to database
+     * @return
+     */
     private View.OnClickListener submit_change(){
         return new View.OnClickListener() {
             @Override

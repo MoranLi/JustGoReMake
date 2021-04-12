@@ -36,7 +36,6 @@ public class FoodRepo {
         values.put("cholesterol",food.getCholesterol());
         values.put("calories",food.getCalories());
         long food_Id = db.insert("food", null, values);
-        db.close();
         return (int) food_Id;
     }
 
@@ -161,7 +160,6 @@ public class FoodRepo {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        db.close();
         return foodList;
     }
 
@@ -182,7 +180,6 @@ public class FoodRepo {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        db.close();
         return food.toString();
     }
     

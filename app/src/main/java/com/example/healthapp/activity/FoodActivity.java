@@ -22,44 +22,49 @@ import java.util.LinkedList;
 public class FoodActivity extends AppCompatActivity {
     private static final String TAG = "NormalExpandActivity";
 
-    LinkedList<String> meats;
+    private LinkedList<String> meats;
 
-    String [] meat;
+    private String [] meat;
 
-    LinkedList<String> vegetables;
+    private LinkedList<String> vegetables;
 
-    String [] vegetable;
+    private String [] vegetable;
 
-    LinkedList<String> fruits;
+    private LinkedList<String> fruits;
 
-    String [] fruit;
+    private String [] fruit;
 
-    LinkedList<String> grains;
+    private LinkedList<String> grains;
 
-    String [] grain;
+    private String [] grain;
 
-    LinkedList<String> dairys;
+    private LinkedList<String> dairys;
 
-    String [] dairy;
+    private String [] dairy;
 
-    LinkedList<String> fats;
+    private LinkedList<String> fats;
 
-    String [] fat;
+    private String [] fat;
 
-    LinkedList<String> users;
+    private LinkedList<String> users;
 
-    String [] user;
+    private String [] user;
 
-    LinkedList<String> datas;
+    private LinkedList<String> datas;
 
     public static String[] general = {"meats","fruits","vegetables","dairys","grains","fats","users"};
 
     public static String[][] specific;
 
+    /**
+     * create component
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
+        // init foods
         FoodRepo.add_default_food(getItSelf());
         ArrayList defaults = FoodRepo.get_default_food_list(getItSelf());
         meats = new LinkedList<>();

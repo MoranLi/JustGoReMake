@@ -23,15 +23,15 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button login;
+    private Button login;
 
-    Button register;
+    private Button register;
 
-    Button forgetPassword;
+    private Button forgetPassword;
 
-    String username;
+    private String username;
 
-    String password;
+    private String password;
 
     /**
      * basic layout for login page
@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     int id = UserRepo.check_user_login(getItSelf(),username,password);
                     if (id >= 0) {
                         GlobalValue.setCurrentUserId(id);
+                        GlobalValue.setCurrentUserName(username);
                         Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
                         startActivity(unit_intent);
                     }
