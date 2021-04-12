@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp.globalValue;
@@ -47,9 +48,13 @@ public class forgetPasswordActivity extends AppCompatActivity {
                 String answer = ((EditText)findViewById(R.id.security_answer_enter)).getText().toString();
                 String newPass = ((EditText)findViewById(R.id.password_enter)).getText().toString();
                 if(!answer.equals(securityAnswer)){
+                    Toast.makeText(getApplicationContext(), "Incorrect answer",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(newPass.length() == 0){
+                    Toast.makeText(getApplicationContext(), "Please fill in the password",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
                 userRepo.update_password(newPass);

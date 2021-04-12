@@ -55,7 +55,7 @@ public class registerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         name = (EditText)findViewById(R.id.username_textedit);
-        password =(EditText)findViewById(R.id.password_register_layout);
+        password =(EditText) findViewById(R.id.password_register_layout);
         height = (EditText) findViewById(R.id.height_register_layout);
         weight = (EditText) findViewById(R.id.weight_register_layout);
         gender = (RadioGroup)findViewById(R.id.choose_gender);
