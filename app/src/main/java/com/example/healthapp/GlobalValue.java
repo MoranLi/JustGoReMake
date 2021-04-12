@@ -4,7 +4,7 @@
  */
 package com.example.healthapp;
 
-public class globalValue {
+public class GlobalValue {
     /**
      * user id for current user
      */
@@ -27,14 +27,14 @@ public class globalValue {
     }
 
     public static void setCurrentWeightId(int currentWeightId) {
-        globalValue.currentWeightId = currentWeightId;
+        GlobalValue.currentWeightId = currentWeightId;
     }
 
     public static int getCurrentUserId() {
         return currentUserId;
     }
     public static void setCurrentUserId(int currentUserId) {
-        globalValue.currentUserId = currentUserId;
+        GlobalValue.currentUserId = currentUserId;
     }
 
     public static int getCurrentMaxUserId() {
@@ -42,7 +42,7 @@ public class globalValue {
     }
 
     public static void setCurrentMaxUserId(int currentMaxUserId) {
-        globalValue.currentMaxUserId = currentMaxUserId;
+        GlobalValue.currentMaxUserId = currentMaxUserId;
     }
 
     public static String getCurrentUserName() {
@@ -50,6 +50,6 @@ public class globalValue {
     }
 
     public static void setCurrentUserName(String currentUserName) {
-        globalValue.currentUserName = currentUserName;
+        GlobalValue.currentUserName = currentUserName;
     }
 }

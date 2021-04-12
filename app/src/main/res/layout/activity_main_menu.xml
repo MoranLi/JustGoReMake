@@ -4,19 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.mainMenuActivity">
+    tools:context=".activity.MainMenuActivity">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/white"
         tools:layout_editor_absoluteX="-36dp"
         tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/go_to_food"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center_horizontal"
+            android:text="food"
+            />
+        <Button
+            android:id="@+id/go_to_exercise"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:text="exercise"
+            />
+        <Button
+            android:id="@+id/go_to_weight"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:text="weight"
+        />
+        <Button
+            android:id="@+id/go_to_recommdation"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:text="recommodation"
+        />
+        <Button
+            android:id="@+id/go_to_user_info"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:text="user profile"
+            />
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,21 +7,21 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class sqlLiteInterface extends SQLiteOpenHelper {
+public class SqlLiteInterface extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_NAME = "JustGo";
 
-    private static sqlLiteInterface sInstance;
+    private static SqlLiteInterface sInstance;
 
     /**
      * create database interface
      * @param context activity
      * @return
      */
-    public static synchronized sqlLiteInterface getInstance(Context context) {
+    public static synchronized SqlLiteInterface getInstance(Context context) {
         if (sInstance == null) {
-            sInstance = new sqlLiteInterface(context);
+            sInstance = new SqlLiteInterface(context);
             clear(sInstance.getWritableDatabase());
         }
         return sInstance;
@@ -31,7 +31,7 @@ public class sqlLiteInterface extends SQLiteOpenHelper {
      *constructor
      * @param context activity
      */
-    private sqlLiteInterface (Context context){
+    private SqlLiteInterface(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

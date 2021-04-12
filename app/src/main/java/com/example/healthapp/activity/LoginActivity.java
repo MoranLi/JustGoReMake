@@ -14,15 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthapp.R;
-import com.example.healthapp.globalValue;
-import com.example.healthapp.sql.sqlLiteInterface;
-import com.example.healthapp.sqlInteraction.userRepo;
-import com.example.healthapp.sqlInteraction.weightRepo;
+import com.example.healthapp.GlobalValue;
+import com.example.healthapp.sql.SqlLiteInterface;
+import com.example.healthapp.sqlInteraction.UserRepo;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     Button login;
 
@@ -42,15 +41,15 @@ public class loginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activivty);
-        sqlLiteInterface.getInstance(this);
+        SqlLiteInterface.getInstance(this);
         login = (Button)findViewById(R.id.login);
         login.setOnClickListener(login());
         register = (Button)findViewById(R.id.signup);
         register.setOnClickListener(signup());
         forgetPassword = (Button)findViewById(R.id.forgetPassword);
         forgetPassword.setOnClickListener(forgetPassword());
-        if(globalValue.getCurrentMaxUserId() <= 0){
-            globalValue.setCurrentMaxUserId(1);
+        if(GlobalValue.getCurrentMaxUserId() <= 0){
+            GlobalValue.setCurrentMaxUserId(1);
         }
     }
 
@@ -77,10 +76,10 @@ public class loginActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    int id = userRepo.check_user_login(username,password);
+                    int id = UserRepo.check_user_login(getItSelf(),username,password);
                     if (id >= 0) {
-                        globalValue.setCurrentUserId(id);
-                        Intent unit_intent = new Intent(getItSelf(), mainMenuActivity.class);
+                        GlobalValue.setCurrentUserId(id);
+                        Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
                         startActivity(unit_intent);
                     }
                     else{
@@ -100,7 +99,7 @@ public class loginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(),registerActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), RegisterActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -117,12 +116,12 @@ public class loginActivity extends AppCompatActivity {
                 if (username.length() == 0){
                     return;
                 }
-                if(userRepo.getInfoByName(username) == null){
+                if(UserRepo.getInfoByName(username, getItSelf()) == null){
                     return;
                 }
-                globalValue.setCurrentUserName(username);
-                globalValue.setCurrentUserId(Integer.parseInt(userRepo.getInfoByName(username)[2]));
-                Intent unit_intent = new Intent(getItSelf(),forgetPasswordActivity.class);
+                GlobalValue.setCurrentUserName(username);
+                GlobalValue.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username, getItSelf())[2]));
+                Intent unit_intent = new Intent(getItSelf(), ForgetPasswordActivity.class);
                 startActivity(unit_intent);
             }
         };

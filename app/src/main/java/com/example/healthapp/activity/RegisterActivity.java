@@ -16,15 +16,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.healthapp.R;
-import com.example.healthapp.datatype.user;
-import com.example.healthapp.datatype.weight;
-import com.example.healthapp.globalValue;
-import com.example.healthapp.sqlInteraction.userRepo;
-import com.example.healthapp.sqlInteraction.weightRepo;
+import com.example.healthapp.datatype.User;
+import com.example.healthapp.datatype.Weight;
+import com.example.healthapp.GlobalValue;
+import com.example.healthapp.sqlInteraction.UserRepo;
+import com.example.healthapp.sqlInteraction.WeightRepo;
 
 import java.util.Date;
 
-public class registerActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     EditText name;
 
@@ -44,7 +44,7 @@ public class registerActivity extends AppCompatActivity {
 
     Button submit;
 
-    com.example.healthapp.datatype.user user;
+    User user;
 
     /**
      * generate basic layout for the sign up page
@@ -74,10 +74,10 @@ public class registerActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = new user();
-                com.example.healthapp.datatype.weight w  = new weight();
-                int userId = globalValue.getCurrentMaxUserId();
-                globalValue.setCurrentMaxUserId(globalValue.getCurrentMaxUserId()+1);
+                user = new User();
+                Weight w  = new Weight();
+                int userId = GlobalValue.getCurrentMaxUserId();
+                GlobalValue.setCurrentMaxUserId(GlobalValue.getCurrentMaxUserId()+1);
                 user.setId(userId);
                 w.setUser_id(userId);
                 user.setName(name.getText().toString());
@@ -114,15 +114,15 @@ public class registerActivity extends AppCompatActivity {
                 String answerStr = answer.getText().toString();
                 user.setSecurityQuestion(questionStr);
                 user.setSecurityAnswer(answerStr);;
-                userRepo.insert(user);
+                UserRepo.insert(get_self(),user);
 
-                w.setId(globalValue.getCurrentWeightId());
-                globalValue.setCurrentWeightId(globalValue.getCurrentWeightId()+1);
+                w.setId(GlobalValue.getCurrentWeightId());
+                GlobalValue.setCurrentWeightId(GlobalValue.getCurrentWeightId()+1);
                 w.setDate(new Date().toString());
                 w.setWeight(Double.parseDouble(weight.getText().toString()));
-                weightRepo.insert(w);
+                WeightRepo.insert(w);
 
-                Intent unit_intent = new Intent(get_self(),loginActivity.class);
+                Intent unit_intent = new Intent(get_self(), LoginActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -132,6 +132,6 @@ public class registerActivity extends AppCompatActivity {
      * used to navigate to other activity
      */
     private Context get_self(){
-        return registerActivity.this;
+        return RegisterActivity.this;
     }
 }
