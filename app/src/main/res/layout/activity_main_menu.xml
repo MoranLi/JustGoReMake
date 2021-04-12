@@ -22,24 +22,17 @@
             android:layout_height="50dp"
             android:layout_marginTop="100dp"
             android:layout_gravity="center_horizontal"
-            android:text="food"
+            android:text="today`s diet"
             />
         <Button
-            android:id="@+id/go_to_exercise"
+            android:id="@+id/go_to_user_info"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
             android:layout_gravity="center_horizontal"
-            android:text="exercise"
+            android:text="user profile"
+
             />
-        <Button
-            android:id="@+id/go_to_weight"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="70dp"
-            android:layout_gravity="center_horizontal"
-            android:text="goal of user"
-        />
         <Button
             android:id="@+id/go_to_recommdation"
             android:layout_width="200dp"
@@ -49,12 +42,20 @@
             android:text="recommodation"
         />
         <Button
-            android:id="@+id/go_to_user_info"
+            android:id="@+id/go_to_weight"
+            android:text="goal of user"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="70dp"
             android:layout_gravity="center_horizontal"
-            android:text="user profile"
+        />
+        <Button
+            android:id="@+id/go_to_experience"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:text="share experience"
             />
 
 

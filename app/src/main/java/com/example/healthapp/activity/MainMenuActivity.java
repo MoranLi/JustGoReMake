@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.healthapp.R;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     /**
@@ -22,7 +24,7 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.example.healthapp.R.layout.activity_main_menu);
         ((Button)findViewById(com.example.healthapp.R.id.go_to_food)).setOnClickListener(addFood());
-        ((Button)findViewById(com.example.healthapp.R.id.go_to_exercise)).setOnClickListener(addExercise());
+        ((Button)findViewById(R.id.go_to_experience)).setOnClickListener(addExercise());
         ((Button)findViewById(com.example.healthapp.R.id.go_to_weight)).setOnClickListener(addWeight());
         ((Button)findViewById(com.example.healthapp.R.id.go_to_recommdation)).setOnClickListener(goRecommdation());
         ((Button)findViewById(com.example.healthapp.R.id.go_to_user_info)).setOnClickListener(changeProfile());
@@ -42,7 +44,7 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), ExerciseActivity.class);
+                Intent unit_intent = new Intent(getItSelf(), ExperienceActivity.class);
                 startActivity(unit_intent);
             }
         };
