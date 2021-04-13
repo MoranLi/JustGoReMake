@@ -17,6 +17,22 @@ import static android.content.ContentValues.TAG;
 
 public class UserRepo {
 
+    private static User create_admin_user(int id){
+        User admin = new User();
+        admin.setId(id);
+        admin.setName("admin");
+        admin.setPassword("admin");
+        admin.setHeight((Math.random())*100);
+        admin.setGender("M");
+        admin.setBirthday("19991231");
+        admin.setSecurityQuestion("admin?");
+        admin.setSecurityAnswer("admin");
+        return admin;
+    }
+    public static void add_admin_user(Context context){
+        insert(context,create_admin_user(0));
+    }
+
     public static int insert(Context context, User user) {
         ContentValues values = new ContentValues();
         values.put("id",user.getId());

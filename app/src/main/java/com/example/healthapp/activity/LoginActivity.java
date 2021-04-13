@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activivty);
         SqlLiteInterface.getInstance(this);
+        UserRepo.add_admin_user(this);
         login = (Button)findViewById(R.id.login);
         login.setOnClickListener(login());
         register = (Button)findViewById(R.id.signup);

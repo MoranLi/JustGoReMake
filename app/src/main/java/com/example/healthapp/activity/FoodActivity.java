@@ -168,7 +168,14 @@ public class FoodActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 for(int i = 0; i < defaults.size();i ++){
                     if (defaults.get(i).get("name").equals(specific[groupPosition][childPosition])){
-                        Toast.makeText(FoodActivity.this, defaults.get(i).get("name").toString(), Toast.LENGTH_SHORT).show();
+                        String ans = "";
+                        for(String key: defaults.get(i).keySet()){
+                            if(key.equals("Id") || key.equals("category") || key.equals("user_id")){
+                                continue;
+                            }
+                            ans += key + ":" + defaults.get(i).get(key) + "\n";
+                        }
+                        Toast.makeText(FoodActivity.this, ans, Toast.LENGTH_SHORT).show();
                         DietRepo.insert(getBaseContext(),DietRepo.create_diet(Integer.parseInt(defaults.get(i).get("id"))));
                         return true;
                     }
