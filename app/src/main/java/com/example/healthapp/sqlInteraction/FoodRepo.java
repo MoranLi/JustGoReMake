@@ -153,9 +153,10 @@ public class FoodRepo {
                 food.put("category",cursor.getString(cursor.getColumnIndex("category")));
                 food.put("name", cursor.getString(cursor.getColumnIndex("name")));
                 food.put("protein",cursor.getString(cursor.getColumnIndex("protein")));
-                food.put("fat",cursor.getString(cursor.getColumnIndex("protein")));
+                food.put("fat",cursor.getString(cursor.getColumnIndex("fat")));
                 food.put("calories",cursor.getString(cursor.getColumnIndex("calories")));
                 food.put("cholesterol",cursor.getString(cursor.getColumnIndex("cholesterol")));
+                food.put("user_id", Integer.toString(0));
                 foodList.add(food);
             } while (cursor.moveToNext());
         }

@@ -92,6 +92,27 @@ public class UserRepo {
         }
     }
 
+    public static HashMap<String, String> getInfoById(int id, Context context){
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
+        String selectQuery =  "select * from user where id = \"" + id + "\"";
+        HashMap<String, String> user = new HashMap<>();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            user.put("id", cursor.getString(cursor.getColumnIndex("id")));
+            user.put("name", cursor.getString(cursor.getColumnIndex("name")));
+            user.put("password",cursor.getString(cursor.getColumnIndex("password")));
+            user.put("height",cursor.getString(cursor.getColumnIndex("height")));
+            user.put("gender",cursor.getString(cursor.getColumnIndex("gender")));
+            user.put("birthday",cursor.getString(cursor.getColumnIndex("birthday")));
+            user.put("question",cursor.getString(cursor.getColumnIndex("question")));
+            user.put("answer", cursor.getString(cursor.getColumnIndex("answer")));
+            return user;
+        }
+        else{
+            return null;
+        }
+    }
+
     public static void update_password(String password, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -115,4 +136,29 @@ public class UserRepo {
         values.put("gender",gender);
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
+
+    public static void update_name(String name, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
+        ContentValues values = new ContentValues();
+        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("name",name);
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+    }
+
+    public static void update_sq(String sq, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
+        ContentValues values = new ContentValues();
+        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("question",sq);
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+    }
+
+    public static void update_answer(String sq, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
+        ContentValues values = new ContentValues();
+        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("answer",sq);
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+    }
+
 }

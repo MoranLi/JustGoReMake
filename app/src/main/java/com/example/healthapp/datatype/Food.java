@@ -1,5 +1,7 @@
 package com.example.healthapp.datatype;
 
+import java.util.HashMap;
+
 public class Food {
     private int id;
     private int user_id;

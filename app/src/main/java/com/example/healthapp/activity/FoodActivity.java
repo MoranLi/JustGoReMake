@@ -13,6 +13,7 @@ import com.example.healthapp.R;
 import com.example.healthapp.adapter.NormalExpandAdapter;
 import com.example.healthapp.adapter.OnGroupExpandedListener;
 import com.example.healthapp.datatype.Food;
+import com.example.healthapp.sqlInteraction.DietRepo;
 import com.example.healthapp.sqlInteraction.FoodRepo;
 
 import java.util.ArrayList;
@@ -168,6 +169,7 @@ public class FoodActivity extends AppCompatActivity {
                 for(int i = 0; i < defaults.size();i ++){
                     if (defaults.get(i).get("name").equals(specific[groupPosition][childPosition])){
                         Toast.makeText(FoodActivity.this, defaults.get(i).get("name").toString(), Toast.LENGTH_SHORT).show();
+                        DietRepo.insert(getBaseContext(),DietRepo.create_diet(Integer.parseInt(defaults.get(i).get("id"))));
                         return true;
                     }
                 }

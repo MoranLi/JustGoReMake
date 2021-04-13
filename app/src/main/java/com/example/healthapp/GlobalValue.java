@@ -21,6 +21,10 @@ public class GlobalValue {
      * weight id for next weight
      */
     private static int currentWeightId = 0;
+    /**
+     * weight id for next weight
+     */
+    private static int currentDietId = 0;
 
     public static int getCurrentWeightId() {
         return currentWeightId;
@@ -51,5 +55,13 @@ public class GlobalValue {
 
     public static void setCurrentUserName(String currentUserName) {
         GlobalValue.currentUserName = currentUserName;
+    }
+
+    public static int getCurrentDietId() {
+        return currentDietId;
+    }
+
+    public static void setCurrentDietId(int currentDietId) {
+        GlobalValue.currentDietId = currentDietId;
     }
 }
