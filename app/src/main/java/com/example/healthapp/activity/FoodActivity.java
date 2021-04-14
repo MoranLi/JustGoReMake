@@ -3,6 +3,7 @@ package com.example.healthapp.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -177,6 +178,9 @@ public class FoodActivity extends AppCompatActivity {
                         }
                         Toast.makeText(FoodActivity.this, ans, Toast.LENGTH_SHORT).show();
                         DietRepo.insert(getBaseContext(),DietRepo.create_diet(Integer.parseInt(defaults.get(i).get("id"))));
+                        Intent go_to_confirm = new Intent(getItSelf(),ShowFoodActivity.class);
+                        go_to_confirm.putExtra("data",ans);
+                        startActivity(go_to_confirm);
                         return true;
                     }
                 }

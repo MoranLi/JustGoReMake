@@ -21,8 +21,6 @@ import java.util.Date;
 
 public class UserInfoActivity extends AppCompatActivity {
 
-    private Button password;
-
     private Button submit;
 
     /**
@@ -33,25 +31,10 @@ public class UserInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
-        password = (Button) findViewById(R.id.profile_change_password);
-        password.setOnClickListener(changePassword());
         submit = (Button) findViewById(R.id.button4);
         submit.setOnClickListener(submit_change());
     }
 
-    /**
-     * change password event
-     * @return
-     */
-    private View.OnClickListener changePassword() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), ForgetPasswordActivity.class);
-                startActivity(unit_intent);
-            }
-        };
-    }
 
     /**
      * sumbit change to database
@@ -61,13 +44,12 @@ public class UserInfoActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean height_change;
-                boolean weight_change;
                 String new_weight = ((EditText) findViewById(R.id.input1)).getText().toString();
                 String new_height = ((EditText) findViewById(R.id.input2)).getText().toString();
                 String new_name = ((EditText) findViewById(R.id.input_new_username)).getText().toString();
                 String new_sq = ((EditText) findViewById(R.id.input_new_sq)).getText().toString();
                 String new_sa = ((EditText) findViewById(R.id.input_new_sa)).getText().toString();
+                String new_pass = ((EditText) findViewById(R.id.input_new_password)).getText().toString();
                 if(new_height.length()!=0){
                     UserRepo.update_height(Double.parseDouble(new_height), getItSelf());
                 }
@@ -87,6 +69,9 @@ public class UserInfoActivity extends AppCompatActivity {
                 }
                 if(new_sq.length() > 0){
                     UserRepo.update_sq(new_sq,getItSelf());
+                }
+                if(new_pass.length() > 0){
+                    UserRepo.update_password(new_pass,getItSelf());
                 }
                 RadioButton genders = (RadioButton)findViewById( ((RadioGroup)findViewById(R.id.gender_change_group)).getCheckedRadioButtonId());
                 UserRepo.update_gender(genders.getText().toString(), getItSelf());
