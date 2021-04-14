@@ -176,7 +176,7 @@ public class FoodActivity extends AppCompatActivity {
                             }
                             ans += key + ":" + defaults.get(i).get(key) + "\n";
                         }
-                        Toast.makeText(FoodActivity.this, ans, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(FoodActivity.this, ans, Toast.LENGTH_SHORT).show();
                         DietRepo.insert(getBaseContext(),DietRepo.create_diet(Integer.parseInt(defaults.get(i).get("id"))));
                         Intent go_to_confirm = new Intent(getItSelf(),ShowFoodActivity.class);
                         go_to_confirm.putExtra("data",ans);
