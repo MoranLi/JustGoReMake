@@ -105,7 +105,7 @@ public class FoodActivity extends AppCompatActivity {
         });
 
     }
-
+    
     private ArrayAdapter<String> getFood(int category){
         HashMap<String, Food> food = FoodRepo.getTypeFoodList(getItSelf(),category);
         return getdata(food);

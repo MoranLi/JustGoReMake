@@ -23,7 +23,7 @@ public class UserRepo {
         admin.setName("admin");
         admin.setPassword("admin");
         admin.setHeight((Math.random())*100);
-        admin.setGender("M");
+        admin.setGender("F");
         admin.setBirthday("19991231");
         admin.setSecurityQuestion("admin?");
         admin.setSecurityAnswer("admin");
