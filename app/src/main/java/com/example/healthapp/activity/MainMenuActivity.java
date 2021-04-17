@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.healthapp.R;
+import com.example.healthapp.sqlInteraction.ExerciseRepo;
+import com.example.healthapp.sqlInteraction.FoodRepo;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -22,6 +24,8 @@ public class MainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FoodRepo.addDefaultFood(getItSelf());
+        ExerciseRepo.addDefaultExercise(getItSelf());
         setContentView(com.example.healthapp.R.layout.activity_main_menu);
         ((Button)findViewById(com.example.healthapp.R.id.go_to_food)).setOnClickListener(addFood());
         ((Button)findViewById(R.id.go_to_experience)).setOnClickListener(addExercise());

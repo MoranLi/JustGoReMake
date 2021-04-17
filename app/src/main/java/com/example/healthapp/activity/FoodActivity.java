@@ -40,8 +40,6 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
         // init foods
-        FoodRepo.addDefaultFood(getItSelf());
-        ExerciseRepo.addDefaultExercise(getItSelf());
         foods = FoodRepo.getDefaultFoodList(getItSelf());
         exercises = ExerciseRepo.getDefaultExerciseList(getItSelf());
         Spinner meats = (Spinner)findViewById(R.id.meat_spinner);
@@ -105,7 +103,7 @@ public class FoodActivity extends AppCompatActivity {
         });
 
     }
-    
+
     private ArrayAdapter<String> getFood(int category){
         HashMap<String, Food> food = FoodRepo.getTypeFoodList(getItSelf(),category);
         return getdata(food);

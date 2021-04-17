@@ -41,6 +41,7 @@
                 android:text="this is food recommdation"
                 android:textSize="30sp"
                 android:layout_marginLeft="20dp"
+                android:id="@+id/food_recomm"
                 />
 
         </LinearLayout>
@@ -65,6 +66,7 @@
                 android:text="this is exercise recommdation"
                 android:textSize="30sp"
                 android:layout_marginLeft="20dp"
+                android:id="@+id/exercise_recomm"
                 />
 
         </LinearLayout>
