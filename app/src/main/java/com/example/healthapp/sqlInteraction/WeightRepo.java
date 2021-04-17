@@ -13,7 +13,7 @@ public class WeightRepo {
     public static int insert(Weight w){
         ContentValues values = new ContentValues();
         values.put("id",w.getId());
-        values.put("user_id",w.getUser_id());
+        values.put("user_id",w.getUserId());
         values.put("date",w.getDate());
         values.put("weight",w.getWeight());
         long weight_Id = db.insert("weight", null, values);

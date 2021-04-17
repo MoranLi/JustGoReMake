@@ -1,10 +1,8 @@
 package com.example.healthapp.datatype;
 
-import java.util.HashMap;
-
 public class Food {
     private int id;
-    private int user_id;
+    private int userId;
     private int category;
     private String name;
     private double protein;
@@ -16,8 +14,8 @@ public class Food {
         this.id = id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setCategory(int category) {
@@ -48,8 +46,8 @@ public class Food {
         return id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
     public int getCategory() {
@@ -74,5 +72,16 @@ public class Food {
 
     public double getCalories() {
         return calories;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", protein=" + protein +
+                ", fat=" + fat +
+                ", cholesterol=" + cholesterol +
+                ", calories=" + calories +
+                '}';
     }
 }

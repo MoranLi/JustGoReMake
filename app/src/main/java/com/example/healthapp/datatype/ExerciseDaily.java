@@ -1,13 +1,11 @@
-/**
- * class that generate weight information that will be used in the future
- */
 package com.example.healthapp.datatype;
 
-public class Weight {
+public class ExerciseDaily {
+
     private int id;
+    private int exerciseId;
     private int userId;
     private String date;
-    private double weight;
 
     public int getId() {
         return id;
@@ -15,6 +13,14 @@ public class Weight {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getExerciseId() {
+        return exerciseId;
+    }
+
+    public void setExerciseId(int exerciseId) {
+        this.exerciseId = exerciseId;
     }
 
     public int getUserId() {
@@ -31,13 +37,5 @@ public class Weight {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 }

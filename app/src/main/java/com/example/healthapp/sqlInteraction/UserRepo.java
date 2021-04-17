@@ -17,7 +17,7 @@ import static android.content.ContentValues.TAG;
 
 public class UserRepo {
 
-    private static User create_admin_user(int id){
+    private static User createAdminUser(int id){
         User admin = new User();
         admin.setId(id);
         admin.setName("admin");
@@ -29,8 +29,8 @@ public class UserRepo {
         admin.setSecurityAnswer("admin");
         return admin;
     }
-    public static void add_admin_user(Context context){
-        insert(context,create_admin_user(0));
+    public static void addAdminUser(Context context){
+        insert(context, createAdminUser(0));
     }
 
     public static int insert(Context context, User user) {
@@ -48,7 +48,7 @@ public class UserRepo {
         return (int) user_Id;
     }
 
-    public static int check_user_login(Context context, String input_name,String input_password) {
+    public static int checkUserLogin(Context context, String input_name, String input_password) {
         String selectQuery =  "select * from user where name = '"+input_name+"'";
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -67,7 +67,7 @@ public class UserRepo {
         return -1;
     }
 
-    public static ArrayList<HashMap<String, String>> get_user_list(Context context) {
+    public static ArrayList<HashMap<String, String>> getUserList(Context context) {
         String selectQuery =  "select * from user";
         ArrayList<HashMap<String, String>> userList = new ArrayList<HashMap<String, String>>();
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
@@ -129,7 +129,7 @@ public class UserRepo {
         }
     }
 
-    public static void update_password(String password, Context context) {
+    public static void updatePassword(String password, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
@@ -137,7 +137,7 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_height(Double height, Context context) {
+    public static void updateHeight(Double height, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
@@ -145,7 +145,7 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_gender(String gender, Context context) {
+    public static void updateGender(String gender, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
@@ -153,7 +153,7 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_name(String name, Context context) {
+    public static void updateName(String name, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
@@ -161,7 +161,7 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_sq(String sq, Context context) {
+    public static void updateSq(String sq, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());
@@ -169,7 +169,7 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
-    public static void update_answer(String sq, Context context) {
+    public static void updateAnswer(String sq, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
         values.put("id", GlobalValue.getCurrentUserId());

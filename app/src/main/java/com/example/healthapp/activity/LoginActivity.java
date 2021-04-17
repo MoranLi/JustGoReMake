@@ -42,16 +42,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activivty);
         SqlLiteInterface.getInstance(this);
-        UserRepo.add_admin_user(this);
+        UserRepo.addAdminUser(this);
         login = (Button)findViewById(R.id.login);
         login.setOnClickListener(login());
         register = (Button)findViewById(R.id.signup);
         register.setOnClickListener(signup());
         forgetPassword = (Button)findViewById(R.id.forgetPassword);
         forgetPassword.setOnClickListener(forgetPassword());
-        if(GlobalValue.getCurrentMaxUserId() <= 0){
-            GlobalValue.setCurrentMaxUserId(1);
-        }
+        GlobalValue.getCurrentMaxUserId();
     }
 
     /**
@@ -77,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    int id = UserRepo.check_user_login(getItSelf(),username,password);
+                    int id = UserRepo.checkUserLogin(getItSelf(),username,password);
                     if (id >= 0) {
                         GlobalValue.setCurrentUserId(id);
                         GlobalValue.setCurrentUserName(username);

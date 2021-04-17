@@ -77,9 +77,8 @@ public class RegisterActivity extends AppCompatActivity {
                 user = new User();
                 Weight w  = new Weight();
                 int userId = GlobalValue.getCurrentMaxUserId();
-                GlobalValue.setCurrentMaxUserId(GlobalValue.getCurrentMaxUserId()+1);
                 user.setId(userId);
-                w.setUser_id(userId);
+                w.setUserId(userId);
                 user.setName(name.getText().toString());
                 user.setHeight(Double.parseDouble(height.getText().toString()));
                 user.setPassword(password.getText().toString());
@@ -115,9 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                 user.setSecurityQuestion(questionStr);
                 user.setSecurityAnswer(answerStr);;
                 UserRepo.insert(get_self(),user);
-
                 w.setId(GlobalValue.getCurrentWeightId());
-                GlobalValue.setCurrentWeightId(GlobalValue.getCurrentWeightId()+1);
                 w.setDate(new Date().toString());
                 w.setWeight(Double.parseDouble(weight.getText().toString()));
                 WeightRepo.insert(w);

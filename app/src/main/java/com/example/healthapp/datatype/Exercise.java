@@ -30,11 +30,11 @@ public class Exercise {
         return category;
     }
 
-    public double getEnergy_consumption() {
+    public double getEnergyConsumption() {
         return energy_consumption;
     }
 
-    public void setEnergy_consumption(double energy_consumption) {
+    public void setEnergyConsumption(double energy_consumption) {
         this.energy_consumption = energy_consumption;
     }
 }

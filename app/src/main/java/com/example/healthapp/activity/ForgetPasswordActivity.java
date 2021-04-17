@@ -57,7 +57,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                UserRepo.update_password(newPass, getItSelf());
+                UserRepo.updatePassword(newPass, getItSelf());
                 Intent unit_intent = new Intent(getItSelf(), LoginActivity.class);
                 startActivity(unit_intent);
             }

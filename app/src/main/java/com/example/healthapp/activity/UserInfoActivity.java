@@ -51,30 +51,30 @@ public class UserInfoActivity extends AppCompatActivity {
                 String new_sa = ((EditText) findViewById(R.id.input_new_sa)).getText().toString();
                 String new_pass = ((EditText) findViewById(R.id.input_new_password)).getText().toString();
                 if(new_height.length()!=0){
-                    UserRepo.update_height(Double.parseDouble(new_height), getItSelf());
+                    UserRepo.updateHeight(Double.parseDouble(new_height), getItSelf());
                 }
                 if(new_weight.length() != 0){
                     Weight w = new Weight();
                     w.setDate(new Date().toString());
-                    w.setUser_id(GlobalValue.getCurrentUserId());
+                    w.setUserId(GlobalValue.getCurrentUserId());
                     w.setId(GlobalValue.getCurrentWeightId());
                     w.setWeight(Double.parseDouble(new_weight));
                     WeightRepo.insert(w);
                 }
                 if(new_name.length() > 0){
-                    UserRepo.update_name(new_name,getItSelf());
+                    UserRepo.updateName(new_name,getItSelf());
                 }
                 if(new_sa.length() > 0){
-                    UserRepo.update_answer(new_sa,getItSelf());
+                    UserRepo.updateAnswer(new_sa,getItSelf());
                 }
                 if(new_sq.length() > 0){
-                    UserRepo.update_sq(new_sq,getItSelf());
+                    UserRepo.updateSq(new_sq,getItSelf());
                 }
                 if(new_pass.length() > 0){
-                    UserRepo.update_password(new_pass,getItSelf());
+                    UserRepo.updatePassword(new_pass,getItSelf());
                 }
                 RadioButton genders = (RadioButton)findViewById( ((RadioGroup)findViewById(R.id.gender_change_group)).getCheckedRadioButtonId());
-                UserRepo.update_gender(genders.getText().toString(), getItSelf());
+                UserRepo.updateGender(genders.getText().toString(), getItSelf());
                 Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
                 startActivity(unit_intent);
             }

@@ -26,27 +26,22 @@ public class GlobalValue {
      */
     private static int currentDietId = 0;
 
-    public static int getCurrentWeightId() {
-        return currentWeightId;
-    }
+    private static int currentExerciseDailyId = 0;
 
-    public static void setCurrentWeightId(int currentWeightId) {
-        GlobalValue.currentWeightId = currentWeightId;
+    public static int getCurrentWeightId() {
+        return currentWeightId+=1;
     }
 
     public static int getCurrentUserId() {
         return currentUserId;
     }
+
     public static void setCurrentUserId(int currentUserId) {
         GlobalValue.currentUserId = currentUserId;
     }
 
     public static int getCurrentMaxUserId() {
-        return currentMaxUserId;
-    }
-
-    public static void setCurrentMaxUserId(int currentMaxUserId) {
-        GlobalValue.currentMaxUserId = currentMaxUserId;
+        return currentMaxUserId+=1;
     }
 
     public static String getCurrentUserName() {
@@ -58,10 +53,10 @@ public class GlobalValue {
     }
 
     public static int getCurrentDietId() {
-        return currentDietId;
+        return currentDietId+=1;
     }
 
-    public static void setCurrentDietId(int currentDietId) {
-        GlobalValue.currentDietId = currentDietId;
+    public static int getCurrentExerciseDailyId() {
+        return currentExerciseDailyId+=1;
     }
 }
