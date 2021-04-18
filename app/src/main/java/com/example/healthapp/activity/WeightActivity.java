@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.healthapp.GlobalValue;
 import com.example.healthapp.R;
@@ -25,6 +26,9 @@ public class WeightActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String new_weight = ((EditText) findViewById(R.id.current_weight)).getText().toString();
                 if(new_weight.length() != 0){
+                    if(Double.parseDouble(new_weight) < 0){
+                        Toast.makeText(WeightActivity.this, "Weigth can not be negative", Toast.LENGTH_SHORT).show();
+                    }
                     Weight w = new Weight();
                     w.setDate(new Date().toString());
                     w.setUserId(GlobalValue.getCurrentUserId());

@@ -26,6 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/goal_of_weight"
+                android:maxLines="1"
+                android:inputType="number"
                 ></EditText>
 
         </LinearLayout>
@@ -46,6 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/current_weight"
+                android:maxLines="1"
+                android:inputType="number"
                 ></EditText>
 
         </LinearLayout>

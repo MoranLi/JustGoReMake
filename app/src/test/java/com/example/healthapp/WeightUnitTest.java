@@ -17,8 +17,8 @@ public class WeightUnitTest {
     @Test
     public void assertUserId(){
         Weight w = new Weight();
-        w.setUser_id(1);
-        assertEquals(1,w.getUser_id());
+        w.setUserId(1);
+        assertEquals(1,w.getUserId());
     }
 
     @Test

@@ -24,8 +24,8 @@ public class MainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FoodRepo.addDefaultFood(getItSelf());
-        ExerciseRepo.addDefaultExercise(getItSelf());
+        FoodRepo.addDefaultFood(getApplicationContext());
+        ExerciseRepo.addDefaultExercise(getApplicationContext());
         setContentView(com.example.healthapp.R.layout.activity_main_menu);
         ((Button)findViewById(com.example.healthapp.R.id.go_to_food)).setOnClickListener(addFood());
         ((Button)findViewById(R.id.go_to_experience)).setOnClickListener(addExercise());
@@ -38,7 +38,7 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), FoodActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), FoodActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -48,7 +48,7 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), ExperienceActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), ExperienceActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -58,7 +58,7 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), WeightActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), WeightActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -68,7 +68,7 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), RecommdationActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), RecommdationActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -78,16 +78,10 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), UserInfoActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), UserInfoActivity.class);
                 startActivity(unit_intent);
             }
         };
     }
 
-    /**
-     * used to navigate to other activity
-     */
-    private Activity getItSelf(){
-        return this;
-    }
 }

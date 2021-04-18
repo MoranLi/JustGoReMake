@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.healthapp.R;
 import com.example.healthapp.datatype.User;
@@ -80,6 +81,10 @@ public class RegisterActivity extends AppCompatActivity {
                 user.setId(userId);
                 w.setUserId(userId);
                 user.setName(name.getText().toString());
+                if(Double.parseDouble(height.getText().toString()) < 0){
+                    Toast.makeText(getBaseContext(), "height can not be negative", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 user.setHeight(Double.parseDouble(height.getText().toString()));
                 user.setPassword(password.getText().toString());
                 int selectedId = gender.getCheckedRadioButtonId();
@@ -113,22 +118,19 @@ public class RegisterActivity extends AppCompatActivity {
                 String answerStr = answer.getText().toString();
                 user.setSecurityQuestion(questionStr);
                 user.setSecurityAnswer(answerStr);;
-                UserRepo.insert(get_self(),user);
+                UserRepo.insert(getApplicationContext(),user);
+                if(Double.parseDouble(weight.getText().toString()) < 0){
+                    Toast.makeText(getBaseContext(), "weight can not be negative", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 w.setId(GlobalValue.getCurrentWeightId());
                 w.setDate(new Date().toString());
                 w.setWeight(Double.parseDouble(weight.getText().toString()));
                 WeightRepo.insert(w);
 
-                Intent unit_intent = new Intent(get_self(), LoginActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(unit_intent);
             }
         };
-    }
-
-    /**
-     * used to navigate to other activity
-     */
-    private Context get_self(){
-        return RegisterActivity.this;
     }
 }

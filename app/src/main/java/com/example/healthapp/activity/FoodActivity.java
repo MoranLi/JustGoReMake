@@ -40,8 +40,8 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
         // init foods
-        foods = FoodRepo.getDefaultFoodList(getItSelf());
-        exercises = ExerciseRepo.getDefaultExerciseList(getItSelf());
+        foods = FoodRepo.getDefaultFoodList(getApplicationContext());
+        exercises = ExerciseRepo.getDefaultExerciseList(getApplicationContext());
         Spinner meats = (Spinner)findViewById(R.id.meat_spinner);
         meats.setAdapter(getFood(0));
         Spinner veges = (Spinner)findViewById(R.id.vegetable_spinner);
@@ -69,34 +69,34 @@ public class FoodActivity extends AppCompatActivity {
                 String exercise = activitys.getSelectedItem().toString();
                 String ans = "";
                 if(meat != "--"){
-                    DietRepo.insert(getItSelf(),DietRepo.createDiet(foods.get(meat).getId()));
+                    DietRepo.insert(getApplicationContext(),DietRepo.createDiet(foods.get(meat).getId()));
                     ans += foods.get(meat) + "\n";
                 }
                 if(vege != "--"){
-                    DietRepo.insert(getItSelf(),DietRepo.createDiet(foods.get(vege).getId()));
+                    DietRepo.insert(getApplicationContext(),DietRepo.createDiet(foods.get(vege).getId()));
                     ans += foods.get(vege) + "\n";
                 }
                 if(fruit != "--"){
-                    DietRepo.insert(getItSelf(),DietRepo.createDiet(foods.get(fruit).getId()));
+                    DietRepo.insert(getApplicationContext(),DietRepo.createDiet(foods.get(fruit).getId()));
                     ans += foods.get(fruit) + "\n";
                 }
                 if(dairy != "--"){
-                    DietRepo.insert(getItSelf(),DietRepo.createDiet(foods.get(dairy).getId()));
+                    DietRepo.insert(getApplicationContext(),DietRepo.createDiet(foods.get(dairy).getId()));
                     ans += foods.get(dairy) + "\n";
                 }
                 if(fat != "--"){
-                    DietRepo.insert(getItSelf(),DietRepo.createDiet(foods.get(fat).getId()));
+                    DietRepo.insert(getApplicationContext(),DietRepo.createDiet(foods.get(fat).getId()));
                     ans += foods.get(fat) + "\n";
                 }
                 if(grain != "--"){
-                    DietRepo.insert(getItSelf(),DietRepo.createDiet(foods.get(grain).getId()));
+                    DietRepo.insert(getApplicationContext(),DietRepo.createDiet(foods.get(grain).getId()));
                     ans += foods.get(grain) + "\n";
                 }
                 if(exercise != "--"){
-                    ExerciseDailyRepo.insert(getItSelf(),ExerciseDailyRepo.createExerciseDaily(exercises.get(exercise).getId()));
+                    ExerciseDailyRepo.insert(getApplicationContext(),ExerciseDailyRepo.createExerciseDaily(exercises.get(exercise).getId()));
                     ans += exercises.get(exercise) + "\n";
                 }
-                Intent go_to_confirm = new Intent(getItSelf(),ShowFoodActivity.class);
+                Intent go_to_confirm = new Intent(getApplicationContext(),ShowFoodActivity.class);
                 go_to_confirm.putExtra("data",ans);
                 startActivity(go_to_confirm);
             }
@@ -105,12 +105,12 @@ public class FoodActivity extends AppCompatActivity {
     }
 
     private ArrayAdapter<String> getFood(int category){
-        HashMap<String, Food> food = FoodRepo.getTypeFoodList(getItSelf(),category);
+        HashMap<String, Food> food = FoodRepo.getTypeFoodList(getApplicationContext(),category);
         return getdata(food);
     }
 
     private ArrayAdapter<String> getExercise(){
-        HashMap<String, Exercise> food = ExerciseRepo.getDefaultExerciseList(getItSelf());
+        HashMap<String, Exercise> food = ExerciseRepo.getDefaultExerciseList(getApplicationContext());
         return getdata(food);
     }
 
@@ -123,9 +123,5 @@ public class FoodActivity extends AppCompatActivity {
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,arr);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return aa;
-    }
-
-    private Activity getItSelf(){
-        return this;
     }
 }

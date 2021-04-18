@@ -29,7 +29,7 @@ public class ExerciseUnitTest {
     @Test
     public void assertCalories(){
         Exercise e = new Exercise();
-        e.setEnergy_consumption(1.0);
-        assertTrue(e.getEnergy_consumption()-1.0 < 0.001);
+        e.setEnergyConsumption(1.0);
+        assertTrue(e.getEnergyConsumption()-1.0 < 0.001);
     }
 }

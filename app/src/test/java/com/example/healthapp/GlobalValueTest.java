@@ -25,9 +25,7 @@ public class GlobalValueTest {
 
     @Test
     public void assertGlobalMaxId(){
-        assertEquals(GlobalValue.getCurrentMaxUserId(),0);
-        GlobalValue.setCurrentMaxUserId(2);
-        assertEquals(GlobalValue.getCurrentMaxUserId(),2);
+        assertEquals(GlobalValue.getCurrentMaxUserId(),1);
     }
 
 }

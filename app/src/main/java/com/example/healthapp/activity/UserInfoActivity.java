@@ -51,7 +51,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 String new_sa = ((EditText) findViewById(R.id.input_new_sa)).getText().toString();
                 String new_pass = ((EditText) findViewById(R.id.input_new_password)).getText().toString();
                 if(new_height.length()!=0){
-                    UserRepo.updateHeight(Double.parseDouble(new_height), getItSelf());
+                    UserRepo.updateHeight(Double.parseDouble(new_height), getApplicationContext());
                 }
                 if(new_weight.length() != 0){
                     Weight w = new Weight();
@@ -62,27 +62,22 @@ public class UserInfoActivity extends AppCompatActivity {
                     WeightRepo.insert(w);
                 }
                 if(new_name.length() > 0){
-                    UserRepo.updateName(new_name,getItSelf());
+                    UserRepo.updateName(new_name,getApplicationContext());
                 }
                 if(new_sa.length() > 0){
-                    UserRepo.updateAnswer(new_sa,getItSelf());
+                    UserRepo.updateAnswer(new_sa,getApplicationContext());
                 }
                 if(new_sq.length() > 0){
-                    UserRepo.updateSq(new_sq,getItSelf());
+                    UserRepo.updateSq(new_sq,getApplicationContext());
                 }
                 if(new_pass.length() > 0){
-                    UserRepo.updatePassword(new_pass,getItSelf());
+                    UserRepo.updatePassword(new_pass,getApplicationContext());
                 }
                 RadioButton genders = (RadioButton)findViewById( ((RadioGroup)findViewById(R.id.gender_change_group)).getCheckedRadioButtonId());
-                UserRepo.updateGender(genders.getText().toString(), getItSelf());
-                Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
+                UserRepo.updateGender(genders.getText().toString(), getApplicationContext());
+                Intent unit_intent = new Intent(getApplicationContext(), MainMenuActivity.class);
                 startActivity(unit_intent);
             }
         };
     }
-
-    private Activity getItSelf(){ return this; }
-
-
-
 }

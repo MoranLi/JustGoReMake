@@ -11,36 +11,64 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="meat"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:id="@+id/meat_spinner"
             ></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="vegetable"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/vegetable_spinner"
             ></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="fruit"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fruit_spinner"
             ></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="grain"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/grain_spinner"
             ></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="fat"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fat_spinner"
             ></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="dairy"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/dairy_spinner"
             ></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="exercise"></TextView>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

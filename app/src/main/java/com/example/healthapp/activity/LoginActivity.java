@@ -75,11 +75,12 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    int id = UserRepo.checkUserLogin(getItSelf(),username,password);
+                    int id = UserRepo.checkUserLogin(
+                            getApplicationContext(),username,password);
                     if (id >= 0) {
                         GlobalValue.setCurrentUserId(id);
                         GlobalValue.setCurrentUserName(username);
-                        Intent unit_intent = new Intent(getItSelf(), MainMenuActivity.class);
+                        Intent unit_intent = new Intent(getApplicationContext(), MainMenuActivity.class);
                         startActivity(unit_intent);
                     }
                     else{
@@ -99,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getItSelf(), RegisterActivity.class);
+                Intent unit_intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(unit_intent);
             }
         };
@@ -116,22 +117,15 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.length() == 0){
                     return;
                 }
-                if(UserRepo.getInfoByName(username, getItSelf()) == null){
+                if(UserRepo.getInfoByName(username, getApplicationContext()) == null){
                     return;
                 }
                 GlobalValue.setCurrentUserName(username);
-                GlobalValue.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username, getItSelf())[2]));
-                Intent unit_intent = new Intent(getItSelf(), ForgetPasswordActivity.class);
+                GlobalValue.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username, getApplicationContext())[2]));
+                Intent unit_intent = new Intent(getApplicationContext(), ForgetPasswordActivity.class);
                 startActivity(unit_intent);
             }
         };
-    }
-
-    /**
-     * used to navigate to other activity
-     */
-    private Activity getItSelf(){
-        return this;
     }
 
 }

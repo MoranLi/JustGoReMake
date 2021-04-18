@@ -4,7 +4,7 @@ public class Exercise {
     private int id;
     private String name;
     private int category;
-    private double energy_consumption;
+    private double energyConsumption;
 
     public int getId() {
         return id;
@@ -31,10 +31,10 @@ public class Exercise {
     }
 
     public double getEnergyConsumption() {
-        return energy_consumption;
+        return energyConsumption;
     }
 
     public void setEnergyConsumption(double energy_consumption) {
-        this.energy_consumption = energy_consumption;
+        this.energyConsumption = energy_consumption;
     }
 }

@@ -23,8 +23,8 @@ public class FoodUnitTest {
     @Test
     public void assertUserId(){
         Food f = new Food();
-        f.setUser_id(1);
-        assertEquals(1,f.getUser_id());
+        f.setUserId(1);
+        assertEquals(1,f.getUserId());
     }@Test
     public void assertCalories(){
         Food f = new Food();

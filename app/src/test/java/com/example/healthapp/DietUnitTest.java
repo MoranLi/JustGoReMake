@@ -19,20 +19,14 @@ public class DietUnitTest {
     @Test
     public void testFoodId() {
         Diet d = new Diet();
-        d.setFood_id(1);
-        assertEquals(1, d.getFood_id());
+        d.setFoodId(1);
+        assertEquals(1, d.getFoodId());
     }
     @Test
     public void testUserId() {
         Diet d = new Diet();
-        d.setUser_id(1);
-        assertEquals(1, d.getUser_id());
-    }
-    @Test
-    public void testMealType() {
-        Diet d = new Diet();
-        d.setMeal_type('b');
-        assertTrue('b'== d.getMeal_type());
+        d.setUserId(1);
+        assertEquals(1, d.getUserId());
     }
     @Test
     public void testDate() {
