@@ -29,21 +29,21 @@ public class FoodRepo {
         values.put("fat",food.getFat());
         values.put("cholesterol",food.getCholesterol());
         values.put("calories",food.getCalories());
-        long food_Id = db.insert("food", null, values);
-        return (int) food_Id;
+        long foodId = db.insert("food", null, values);
+        return (int) foodId;
     }
 
     private static Food cretaeDefaultFoods(int id, int category){
-        Food a_food = new Food();
-        a_food.setId(id);
-        a_food.setName(foodname[id]);
-        a_food.setCalories(Math.random());
-        a_food.setCategory(category);
-        a_food.setCholesterol(Math.random());
-        a_food.setFat(Math.random());
-        a_food.setUserId(0);
-        a_food.setProtein(Math.random());
-        return a_food;
+        Food aFood = new Food();
+        aFood.setId(id);
+        aFood.setName(foodname[id]);
+        aFood.setCalories(Math.random());
+        aFood.setCategory(category);
+        aFood.setCholesterol(Math.random());
+        aFood.setFat(Math.random());
+        aFood.setUserId(0);
+        aFood.setProtein(Math.random());
+        return aFood;
     }
 
     public static void addDefaultFood(Context context){

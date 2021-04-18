@@ -38,8 +38,8 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getApplicationContext(), FoodActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), FoodActivity.class);
+                startActivity(unitIntent);
             }
         };
     }
@@ -48,8 +48,8 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getApplicationContext(), ExperienceActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), ExperienceActivity.class);
+                startActivity(unitIntent);
             }
         };
     }
@@ -58,8 +58,8 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getApplicationContext(), WeightActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), WeightActivity.class);
+                startActivity(unitIntent);
             }
         };
     }
@@ -68,8 +68,8 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getApplicationContext(), RecommdationActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), RecommdationActivity.class);
+                startActivity(unitIntent);
             }
         };
     }
@@ -78,8 +78,8 @@ public class MainMenuActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unit_intent = new Intent(getApplicationContext(), UserInfoActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), UserInfoActivity.class);
+                startActivity(unitIntent);
             }
         };
     }

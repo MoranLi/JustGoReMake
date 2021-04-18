@@ -4,6 +4,9 @@
  */
 package com.example.healthapp;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class GlobalValue {
     /**
      * user id for current user
@@ -58,5 +61,11 @@ public class GlobalValue {
 
     public static int getCurrentExerciseDailyId() {
         return currentExerciseDailyId+=1;
+    }
+
+    public static String currentDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(new Date());
+        return date;
     }
 }

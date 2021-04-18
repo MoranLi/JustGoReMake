@@ -2,7 +2,6 @@ package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +31,7 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
         submit = (Button) findViewById(R.id.button4);
-        submit.setOnClickListener(submit_change());
+        submit.setOnClickListener(submitChange());
     }
 
 
@@ -40,43 +39,43 @@ public class UserInfoActivity extends AppCompatActivity {
      * sumbit change to database
      * @return
      */
-    private View.OnClickListener submit_change(){
+    private View.OnClickListener submitChange(){
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String new_weight = ((EditText) findViewById(R.id.input1)).getText().toString();
-                String new_height = ((EditText) findViewById(R.id.input2)).getText().toString();
-                String new_name = ((EditText) findViewById(R.id.input_new_username)).getText().toString();
-                String new_sq = ((EditText) findViewById(R.id.input_new_sq)).getText().toString();
-                String new_sa = ((EditText) findViewById(R.id.input_new_sa)).getText().toString();
-                String new_pass = ((EditText) findViewById(R.id.input_new_password)).getText().toString();
-                if(new_height.length()!=0){
-                    UserRepo.updateHeight(Double.parseDouble(new_height), getApplicationContext());
+                String newWeight = ((EditText) findViewById(R.id.input1)).getText().toString();
+                String newHeight = ((EditText) findViewById(R.id.input2)).getText().toString();
+                String newName = ((EditText) findViewById(R.id.input_new_username)).getText().toString();
+                String newSq = ((EditText) findViewById(R.id.input_new_sq)).getText().toString();
+                String newSa = ((EditText) findViewById(R.id.input_new_sa)).getText().toString();
+                String newPass = ((EditText) findViewById(R.id.input_new_password)).getText().toString();
+                if(newHeight.length()!=0){
+                    UserRepo.updateHeight(Double.parseDouble(newHeight), getApplicationContext());
                 }
-                if(new_weight.length() != 0){
+                if(newWeight.length() != 0){
                     Weight w = new Weight();
                     w.setDate(new Date().toString());
                     w.setUserId(GlobalValue.getCurrentUserId());
                     w.setId(GlobalValue.getCurrentWeightId());
-                    w.setWeight(Double.parseDouble(new_weight));
-                    WeightRepo.insert(w);
+                    w.setWeight(Double.parseDouble(newWeight));
+                    WeightRepo.insert(getApplicationContext(),w);
                 }
-                if(new_name.length() > 0){
-                    UserRepo.updateName(new_name,getApplicationContext());
+                if(newName.length() > 0){
+                    UserRepo.updateName(newName,getApplicationContext());
                 }
-                if(new_sa.length() > 0){
-                    UserRepo.updateAnswer(new_sa,getApplicationContext());
+                if(newSa.length() > 0){
+                    UserRepo.updateAnswer(newSa,getApplicationContext());
                 }
-                if(new_sq.length() > 0){
-                    UserRepo.updateSq(new_sq,getApplicationContext());
+                if(newSq.length() > 0){
+                    UserRepo.updateSq(newSq,getApplicationContext());
                 }
-                if(new_pass.length() > 0){
-                    UserRepo.updatePassword(new_pass,getApplicationContext());
+                if(newPass.length() > 0){
+                    UserRepo.updatePassword(newPass,getApplicationContext());
                 }
                 RadioButton genders = (RadioButton)findViewById( ((RadioGroup)findViewById(R.id.gender_change_group)).getCheckedRadioButtonId());
                 UserRepo.updateGender(genders.getText().toString(), getApplicationContext());
-                Intent unit_intent = new Intent(getApplicationContext(), MainMenuActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                startActivity(unitIntent);
             }
         };
     }

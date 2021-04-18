@@ -5,7 +5,6 @@ package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -64,14 +63,14 @@ public class RegisterActivity extends AppCompatActivity {
         question = (EditText)findViewById(R.id.security_question_register_layout);
         answer = (EditText)findViewById(R.id.security_answer_register_layout);
         submit = (Button)findViewById(R.id.submit_user_info);
-        submit.setOnClickListener(add_user());
+        submit.setOnClickListener(addUser());
     }
 
     /**
      * get basic user information and add to the database
      * @return
      */
-    private View.OnClickListener add_user (){
+    private View.OnClickListener addUser(){
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,10 +125,10 @@ public class RegisterActivity extends AppCompatActivity {
                 w.setId(GlobalValue.getCurrentWeightId());
                 w.setDate(new Date().toString());
                 w.setWeight(Double.parseDouble(weight.getText().toString()));
-                WeightRepo.insert(w);
+                WeightRepo.insert(getApplicationContext(),w);
 
-                Intent unit_intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(unitIntent);
             }
         };
     }

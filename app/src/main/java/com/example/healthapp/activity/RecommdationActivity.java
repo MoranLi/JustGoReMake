@@ -23,11 +23,11 @@ public class RecommdationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.healthapp.R.layout.activity_recommdation);
-        int food_id = DietRepo.getMinIntake(this);
+        int foodId = DietRepo.getMinIntake(this);
         HashMap<String, Food> foods = FoodRepo.getDefaultFoodList(this);
         HashMap<String, Exercise> exercises = ExerciseRepo.getDefaultExerciseList(this);
         for(Food f: foods.values()){
-            if (f.getId() == food_id){
+            if (f.getId() == foodId){
                 ((TextView)findViewById(R.id.food_recomm)).setText("Your show take more "+ f.getName());
             }
         }

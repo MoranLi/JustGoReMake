@@ -24,17 +24,22 @@ public class WeightActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.submitweight)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String new_weight = ((EditText) findViewById(R.id.current_weight)).getText().toString();
-                if(new_weight.length() != 0){
-                    if(Double.parseDouble(new_weight) < 0){
+                String newWeight = ((EditText) findViewById(R.id.current_weight)).getText().toString();
+                if(newWeight.length() != 0){
+                    if(Double.parseDouble(newWeight) < 0){
                         Toast.makeText(WeightActivity.this, "Weigth can not be negative", Toast.LENGTH_SHORT).show();
                     }
                     Weight w = new Weight();
-                    w.setDate(new Date().toString());
                     w.setUserId(GlobalValue.getCurrentUserId());
                     w.setId(GlobalValue.getCurrentWeightId());
-                    w.setWeight(Double.parseDouble(new_weight));
-                    WeightRepo.insert(w);
+                    w.setWeight(Double.parseDouble(newWeight));
+                    if(!WeightRepo.existToday(getApplicationContext())){
+                        WeightRepo.insert(getApplicationContext(),w);
+                    }
+                    else{
+                        WeightRepo.update(getApplicationContext(),w,GlobalValue.currentDate());
+                    }
+
                 }
             }
         });

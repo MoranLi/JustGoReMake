@@ -20,14 +20,8 @@ public class ExerciseDailyRepo {
         values.put("user_id",diet.getUserId());
         values.put("exercise_id",diet.getExerciseId());
         values.put("date",diet.getDate());
-        long food_Id = db.insert("exerciseDaily", null, values);
-        return (int) food_Id;
-    }
-
-    public static String currentDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(new Date());
-        return date;
+        long foodId = db.insert("exerciseDaily", null, values);
+        return (int) foodId;
     }
 
 
@@ -36,7 +30,7 @@ public class ExerciseDailyRepo {
         e.setExerciseId(exerciseId);
         e.setId(GlobalValue.getCurrentExerciseDailyId());
         e.setUserId(GlobalValue.getCurrentUserId());
-        e.setDate(currentDate());
+        e.setDate(GlobalValue.currentDate());
         return e;
     }
 }

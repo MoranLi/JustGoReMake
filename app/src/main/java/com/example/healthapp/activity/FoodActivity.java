@@ -96,9 +96,9 @@ public class FoodActivity extends AppCompatActivity {
                     ExerciseDailyRepo.insert(getApplicationContext(),ExerciseDailyRepo.createExerciseDaily(exercises.get(exercise).getId()));
                     ans += exercises.get(exercise) + "\n";
                 }
-                Intent go_to_confirm = new Intent(getApplicationContext(),ShowFoodActivity.class);
-                go_to_confirm.putExtra("data",ans);
-                startActivity(go_to_confirm);
+                Intent goToConfirm = new Intent(getApplicationContext(),ShowFoodActivity.class);
+                goToConfirm.putExtra("data",ans);
+                startActivity(goToConfirm);
             }
         });
 

@@ -35,8 +35,8 @@ public class ExerciseRepo {
         values.put("name", ex.getName());
         values.put("category", ex.getCategory());
         values.put("energy_consumption", ex.getEnergyConsumption());
-        long ex_id = db.insert("exercise", null, values);
-        return (int) ex_id;
+        long exId = db.insert("exercise", null, values);
+        return (int) exId;
     }
 
     public static void addDefaultExercise(Context context){

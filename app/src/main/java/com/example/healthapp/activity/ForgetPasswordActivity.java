@@ -58,8 +58,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     return;
                 }
                 UserRepo.updatePassword(newPass, getApplicationContext());
-                Intent unit_intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(unit_intent);
+                Intent unitIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(unitIntent);
             }
         };
     }

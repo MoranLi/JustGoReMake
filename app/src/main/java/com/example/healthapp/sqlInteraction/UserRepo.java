@@ -44,8 +44,8 @@ public class UserRepo {
         values.put("question",user.getSecurityQuestion());
         values.put("answer",user.getSecurityAnswer());
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
-        long user_Id = db.insert("user", null, values);
-        return (int) user_Id;
+        long userId = db.insert("user", null, values);
+        return (int) userId;
     }
 
     public static int checkUserLogin(Context context, String input_name, String input_password) {

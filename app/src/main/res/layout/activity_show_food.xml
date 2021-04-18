@@ -6,10 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".activity.ShowFoodActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/show_food_info"
-        tools:ignore="MissingConstraints"></TextView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/show_food_back_main"
+            android:text="goback to main"></Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/show_food_info"
+            tools:ignore="MissingConstraints"></TextView>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

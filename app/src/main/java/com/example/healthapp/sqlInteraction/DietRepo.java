@@ -28,23 +28,17 @@ public class DietRepo {
         values.put("user_id",diet.getUserId());
         values.put("food_id",diet.getFoodId());
         values.put("date",diet.getDate());
-        long food_Id = db.insert("diet", null, values);
-        return (int) food_Id;
-    }
-
-    private static String currentDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(new Date());
-        return date;
+        long foodId = db.insert("diet", null, values);
+        return (int) foodId;
     }
 
 
-    public static Diet createDiet(int food_id){
+    public static Diet createDiet(int foodId){
         Diet diet = new Diet();
         diet.setId(GlobalValue.getCurrentDietId());
         diet.setUserId(GlobalValue.getCurrentUserId());
-        diet.setDate(currentDate());
-        diet.setFoodId(food_id);
+        diet.setDate(GlobalValue.currentDate());
+        diet.setFoodId(foodId);
         return diet;
     }
 
@@ -72,18 +66,18 @@ public class DietRepo {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         int min = 9999999;
-        int min_id = 0;
+        int minId = 0;
         if (cursor.moveToFirst()) {
             do {
                 int amount = cursor.getInt(cursor.getColumnIndex("c"));
                 if(amount < min){
                     min = amount;
-                    min_id = cursor.getInt(cursor.getColumnIndex("food_id"));
+                    minId = cursor.getInt(cursor.getColumnIndex("food_id"));
                 }
             } while (cursor.moveToNext());
         }
         cursor.close();
-        return min_id;
+        return minId;
     }
 
 }
