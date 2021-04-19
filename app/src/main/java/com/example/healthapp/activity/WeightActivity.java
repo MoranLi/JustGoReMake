@@ -17,6 +17,10 @@ import java.util.Date;
 
 public class WeightActivity extends AppCompatActivity {
 
+    /**
+     * create
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

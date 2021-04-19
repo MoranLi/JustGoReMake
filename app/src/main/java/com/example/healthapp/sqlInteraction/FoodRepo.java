@@ -18,6 +18,12 @@ public class FoodRepo {
 
     private static boolean initialized = false;
 
+    /**
+     * insert
+     * @param context
+     * @param food
+     * @return
+     */
     public static int insert(Context context, Food food) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -33,6 +39,12 @@ public class FoodRepo {
         return (int) foodId;
     }
 
+    /**
+     * create default foods
+     * @param id
+     * @param category
+     * @return
+     */
     private static Food cretaeDefaultFoods(int id, int category){
         Food aFood = new Food();
         aFood.setId(id);
@@ -46,6 +58,10 @@ public class FoodRepo {
         return aFood;
     }
 
+    /**
+     * add default foods
+     * @param context
+     */
     public static void addDefaultFood(Context context){
         if(initialized){
             return;
@@ -55,17 +71,34 @@ public class FoodRepo {
         }
         initialized = true;
     }
-    
+
+    /**
+     * get a type food
+     * @param context
+     * @param type
+     * @return
+     */
     public static HashMap<String, Food> getTypeFoodList(Context context, int type){
         String selectQuery =  "select * from food where category = "+type;
         return getFoodList(context, selectQuery);
     }
 
+    /**
+     * get all food
+     * @param context
+     * @return
+     */
     public static HashMap<String, Food> getDefaultFoodList(Context context){
         String selectQuery =  "select * from food";
         return getFoodList(context, selectQuery);
     }
 
+    /**
+     * get some food
+     * @param context
+     * @param selectQuery
+     * @return
+     */
     public static HashMap<String, Food> getFoodList(Context context, String selectQuery) {
         HashMap<String, Food> foods = new HashMap<>();
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();

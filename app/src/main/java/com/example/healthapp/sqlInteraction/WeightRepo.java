@@ -17,6 +17,12 @@ import static android.content.ContentValues.TAG;
 
 public class WeightRepo {
 
+    /**
+     * add weight record
+     * @param context
+     * @param w
+     * @return
+     */
     public static int insert(Context context, Weight w){
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -28,6 +34,13 @@ public class WeightRepo {
         return (int) weightId;
     }
 
+    /**
+     * change weight record
+     * @param context
+     * @param w
+     * @param date
+     * @return
+     */
     public static int update(Context context, Weight w, String date){
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -36,6 +49,11 @@ public class WeightRepo {
         return (int) weightId;
     }
 
+    /**
+     * exist a weigth record today
+     * @param context
+     * @return
+     */
     public static boolean existToday(Context context){
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         String selectQuery =  "select * from weight where date = date('" +GlobalValue.currentDate()+"')";

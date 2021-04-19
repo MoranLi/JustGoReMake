@@ -104,16 +104,30 @@ public class FoodActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * get all food
+     * @param category
+     * @return
+     */
     private ArrayAdapter<String> getFood(int category){
         HashMap<String, Food> food = FoodRepo.getTypeFoodList(getApplicationContext(),category);
         return getdata(food);
     }
 
+    /**
+     * get all exercise
+     * @return
+     */
     private ArrayAdapter<String> getExercise(){
         HashMap<String, Exercise> food = ExerciseRepo.getDefaultExerciseList(getApplicationContext());
         return getdata(food);
     }
 
+    /**
+     * get data
+     * @param data
+     * @return
+     */
     private ArrayAdapter<String> getdata(HashMap data){
         //Creating the ArrayAdapter instance having the country list
         String arr[] = new String[data.size()+1];

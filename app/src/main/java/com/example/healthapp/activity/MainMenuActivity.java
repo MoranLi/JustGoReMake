@@ -34,6 +34,10 @@ public class MainMenuActivity extends AppCompatActivity {
         ((Button)findViewById(com.example.healthapp.R.id.go_to_user_info)).setOnClickListener(changeProfile());
     }
 
+    /**
+     * add food
+     * @return
+     */
     private View.OnClickListener addFood() {
         return new View.OnClickListener() {
             @Override
@@ -44,6 +48,10 @@ public class MainMenuActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * add exercise
+     * @return
+     */
     private View.OnClickListener addExercise() {
         return new View.OnClickListener() {
             @Override
@@ -54,6 +62,10 @@ public class MainMenuActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * ADD WEIGHT
+     * @return
+     */
     private View.OnClickListener addWeight() {
         return new View.OnClickListener() {
             @Override
@@ -64,6 +76,10 @@ public class MainMenuActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * GO RECOMM
+     * @return
+     */
     private View.OnClickListener goRecommdation() {
         return new View.OnClickListener() {
             @Override
@@ -74,6 +90,10 @@ public class MainMenuActivity extends AppCompatActivity {
         };
     }
 
+    /**
+     * go change rpofile
+     * @return
+     */
     private View.OnClickListener changeProfile() {
         return new View.OnClickListener() {
             @Override

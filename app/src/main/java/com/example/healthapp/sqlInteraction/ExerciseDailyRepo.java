@@ -13,6 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExerciseDailyRepo {
+    /**
+     * insert
+     * @param context
+     * @param diet
+     * @return
+     */
     public static int insert(Context context, ExerciseDaily diet) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -24,7 +30,11 @@ public class ExerciseDailyRepo {
         return (int) foodId;
     }
 
-
+    /**
+     * create obj
+     * @param exerciseId
+     * @return
+     */
     public static ExerciseDaily createExerciseDaily(int exerciseId){
         ExerciseDaily e = new ExerciseDaily();
         e.setExerciseId(exerciseId);

@@ -63,6 +63,10 @@ public class GlobalValue {
         return currentExerciseDailyId+=1;
     }
 
+    /**
+     * today in string
+     * @return
+     */
     public static String currentDate(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(new Date());

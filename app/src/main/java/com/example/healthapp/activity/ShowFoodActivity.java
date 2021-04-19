@@ -12,6 +12,10 @@ import com.example.healthapp.R;
 
 public class ShowFoodActivity extends AppCompatActivity {
 
+    /**
+     * create
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

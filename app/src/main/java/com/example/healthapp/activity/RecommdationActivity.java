@@ -19,6 +19,10 @@ import java.util.Random;
 
 public class RecommdationActivity extends AppCompatActivity {
 
+    /**
+     * create
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

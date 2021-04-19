@@ -19,6 +19,11 @@ public class ExerciseRepo {
 
     private static boolean initialized = false;
 
+    /**
+     * create a exercise
+     * @param i
+     * @return
+     */
     private static Exercise cretaeDefaultEndurance(int i){
         Exercise ex = new Exercise();
         ex.setId(i);
@@ -28,6 +33,12 @@ public class ExerciseRepo {
         return ex;
     }
 
+    /**
+     * insert
+     * @param context
+     * @param ex
+     * @return
+     */
     public static int insert(Context context,  Exercise ex) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -39,6 +50,10 @@ public class ExerciseRepo {
         return (int) exId;
     }
 
+    /**
+     * add default exercise
+     * @param context
+     */
     public static void addDefaultExercise(Context context){
         if(initialized){
             return;
@@ -49,6 +64,11 @@ public class ExerciseRepo {
         initialized = true;
     }
 
+    /**
+     * get all exercise
+     * @param context
+     * @return
+     */
     public static HashMap<String, Exercise> getDefaultExerciseList(Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         String selectQuery =  "select * from exercise";

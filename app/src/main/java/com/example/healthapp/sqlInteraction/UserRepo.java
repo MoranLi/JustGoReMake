@@ -17,6 +17,11 @@ import static android.content.ContentValues.TAG;
 
 public class UserRepo {
 
+    /**
+     * create admin
+     * @param id
+     * @return
+     */
     private static User createAdminUser(int id){
         User admin = new User();
         admin.setId(id);
@@ -29,10 +34,21 @@ public class UserRepo {
         admin.setSecurityAnswer("admin");
         return admin;
     }
+
+    /**\
+     * add admin
+     * @param context
+     */
     public static void addAdminUser(Context context){
         insert(context, createAdminUser(0));
     }
 
+    /**
+     * iinsert user
+     * @param context
+     * @param user
+     * @return
+     */
     public static int insert(Context context, User user) {
         ContentValues values = new ContentValues();
         values.put("id",user.getId());
@@ -48,6 +64,13 @@ public class UserRepo {
         return (int) userId;
     }
 
+    /**
+     * check login
+     * @param context
+     * @param input_name
+     * @param input_password
+     * @return
+     */
     public static int checkUserLogin(Context context, String input_name, String input_password) {
         String selectQuery =  "select * from user where name = '"+input_name+"'";
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
@@ -67,6 +90,11 @@ public class UserRepo {
         return -1;
     }
 
+    /**
+     * get all user
+     * @param context
+     * @return
+     */
     public static ArrayList<HashMap<String, String>> getUserList(Context context) {
         String selectQuery =  "select * from user";
         ArrayList<HashMap<String, String>> userList = new ArrayList<HashMap<String, String>>();
@@ -92,6 +120,12 @@ public class UserRepo {
         return userList;
     }
 
+    /**
+     * get name user
+     * @param name
+     * @param context
+     * @return
+     */
     public static String[] getInfoByName(String name, Context context){
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         String selectQuery =  "select * from user where name = \"" + name + "\"";
@@ -108,6 +142,12 @@ public class UserRepo {
         }
     }
 
+    /**
+     * get id user
+     * @param id
+     * @param context
+     * @return
+     */
     public static HashMap<String, String> getInfoById(int id, Context context){
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         String selectQuery =  "select * from user where id = \"" + id + "\"";
@@ -129,6 +169,11 @@ public class UserRepo {
         }
     }
 
+    /**
+     * change password
+     * @param password
+     * @param context
+     */
     public static void updatePassword(String password, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -137,6 +182,11 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
+    /**
+     * change height
+     * @param height
+     * @param context
+     */
     public static void updateHeight(Double height, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -145,6 +195,11 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
+    /**
+     * change gender
+     * @param gender
+     * @param context
+     */
     public static void updateGender(String gender, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -153,6 +208,11 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
+    /**
+     * change name
+     * @param name
+     * @param context
+     */
     public static void updateName(String name, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -161,6 +221,11 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
+    /**
+     * change sq
+     * @param sq
+     * @param context
+     */
     public static void updateSq(String sq, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -169,6 +234,11 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
     }
 
+    /**
+     * change sa
+     * @param sq
+     * @param context
+     */
     public static void updateAnswer(String sq, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
