@@ -3,6 +3,9 @@
  */
 package com.example.healthapp.datatype;
 
+/**
+ * user type
+ */
 public class User {
     private int id;
     private String name;

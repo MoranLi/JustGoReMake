@@ -8,13 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.healthapp.GlobalValue;
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
 import com.example.healthapp.datatype.Weight;
 import com.example.healthapp.sqlInteraction.WeightRepo;
 
-import java.util.Date;
-
+/**
+ * change weight ans set goal
+ */
 public class WeightActivity extends AppCompatActivity {
 
     /**
@@ -34,14 +35,14 @@ public class WeightActivity extends AppCompatActivity {
                         Toast.makeText(WeightActivity.this, "Weigth can not be negative", Toast.LENGTH_SHORT).show();
                     }
                     Weight w = new Weight();
-                    w.setUserId(GlobalValue.getCurrentUserId());
-                    w.setId(GlobalValue.getCurrentWeightId());
+                    w.setUserId(DifferentIdsAndUtilities.getCurrentUserId());
+                    w.setId(DifferentIdsAndUtilities.getCurrentWeightId());
                     w.setWeight(Double.parseDouble(newWeight));
                     if(!WeightRepo.existToday(getApplicationContext())){
                         WeightRepo.insert(getApplicationContext(),w);
                     }
                     else{
-                        WeightRepo.update(getApplicationContext(),w,GlobalValue.currentDate());
+                        WeightRepo.update(getApplicationContext(),w, DifferentIdsAndUtilities.currentDate());
                     }
 
                 }

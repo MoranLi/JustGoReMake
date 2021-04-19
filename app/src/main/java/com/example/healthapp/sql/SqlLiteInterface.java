@@ -7,6 +7,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * general sql inteface
+ */
 public class SqlLiteInterface extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
@@ -89,7 +92,7 @@ public class SqlLiteInterface extends SQLiteOpenHelper {
     }
 
     /**
-     * create the table
+     * create all the table
      */
     private static String [] doCreateTableString(){
         String [] creating = new String [6];
@@ -103,7 +106,7 @@ public class SqlLiteInterface extends SQLiteOpenHelper {
     }
 
     /**
-     * delete the table
+     * delete all the table
      */
     private static String [] dropTable(){
         String [] droping = new String [6];

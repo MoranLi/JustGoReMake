@@ -1,5 +1,8 @@
 package com.example.healthapp.datatype;
 
+/**
+ * exercise record type
+ */
 public class ExerciseDaily {
 
     private int id;

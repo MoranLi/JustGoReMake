@@ -2,7 +2,6 @@ package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,20 +9,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.example.healthapp.GlobalValue;
 import com.example.healthapp.R;
-import com.example.healthapp.datatype.Diet;
 import com.example.healthapp.datatype.Exercise;
-import com.example.healthapp.datatype.ExerciseDaily;
 import com.example.healthapp.datatype.Food;
 import com.example.healthapp.sqlInteraction.DietRepo;
 import com.example.healthapp.sqlInteraction.ExerciseDailyRepo;
 import com.example.healthapp.sqlInteraction.ExerciseRepo;
 import com.example.healthapp.sqlInteraction.FoodRepo;
 
-import java.util.Date;
 import java.util.HashMap;
 
+/**
+ * show foods
+ */
 public class FoodActivity extends AppCompatActivity {
     private static final String TAG = "NormalExpandActivity";
 

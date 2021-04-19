@@ -19,7 +19,7 @@ public class FoodRepo {
     private static boolean initialized = false;
 
     /**
-     * insert
+     * insert food
      * @param context
      * @param food
      * @return

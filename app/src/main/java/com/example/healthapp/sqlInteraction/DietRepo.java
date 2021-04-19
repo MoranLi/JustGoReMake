@@ -4,23 +4,21 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-import com.example.healthapp.GlobalValue;
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.datatype.Diet;
-import com.example.healthapp.datatype.Food;
 import com.example.healthapp.sql.SqlLiteInterface;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-
-import static android.content.ContentValues.TAG;
 
 public class DietRepo {
 
+    /**
+     * insert new diet data
+     * @param context
+     * @param diet
+     * @return
+     */
     public static int insert(Context context, Diet diet) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -33,18 +31,30 @@ public class DietRepo {
     }
 
 
+    /**
+     * create diet base on food id
+     * @param foodId
+     * @return
+     */
     public static Diet createDiet(int foodId){
         Diet diet = new Diet();
-        diet.setId(GlobalValue.getCurrentDietId());
-        diet.setUserId(GlobalValue.getCurrentUserId());
-        diet.setDate(GlobalValue.currentDate());
+        diet.setId(DifferentIdsAndUtilities.getCurrentDietId());
+        diet.setUserId(DifferentIdsAndUtilities.getCurrentUserId());
+        diet.setDate(DifferentIdsAndUtilities.currentDate());
         diet.setFoodId(foodId);
         return diet;
     }
 
+    /**
+     * get diet in a time range
+     * @param context
+     * @param from
+     * @param to
+     * @return
+     */
     public static ArrayList<Diet> getDietByRange(Context context, String from, String to){
         String selectQuery = "select * from diet where date between '"
-                + from + "' and '" + to + "' and user_id = " + GlobalValue.getCurrentUserId();
+                + from + "' and '" + to + "' and user_id = " + DifferentIdsAndUtilities.getCurrentUserId();
         ArrayList<Diet> diets = new ArrayList<>();
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -61,8 +71,13 @@ public class DietRepo {
         return diets;
     }
 
+    /**
+     * get food id which eat least time
+     * @param context
+     * @return
+     */
     public static int getMinIntake(Context context){
-        String selectQuery = "select food_id, count(food_id) as c from diet where user_id = " + GlobalValue.getCurrentUserId() + " group by food_id ";
+        String selectQuery = "select food_id, count(food_id) as c from diet where user_id = " + DifferentIdsAndUtilities.getCurrentUserId() + " group by food_id ";
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         int min = 9999999;

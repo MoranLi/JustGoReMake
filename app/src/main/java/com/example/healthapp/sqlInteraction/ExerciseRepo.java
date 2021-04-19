@@ -34,7 +34,7 @@ public class ExerciseRepo {
     }
 
     /**
-     * insert
+     * insert exercise
      * @param context
      * @param ex
      * @return

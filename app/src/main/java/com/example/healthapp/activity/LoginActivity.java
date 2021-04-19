@@ -5,7 +5,6 @@ package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +12,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
-import com.example.healthapp.GlobalValue;
 import com.example.healthapp.sql.SqlLiteInterface;
 import com.example.healthapp.sqlInteraction.UserRepo;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * login page
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private Button login;
@@ -49,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(signup());
         forgetPassword = (Button)findViewById(R.id.forgetPassword);
         forgetPassword.setOnClickListener(forgetPassword());
-        GlobalValue.getCurrentMaxUserId();
+        DifferentIdsAndUtilities.getCurrentMaxUserId();
     }
 
     /**
@@ -78,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                     int id = UserRepo.checkUserLogin(
                             getApplicationContext(),username,password);
                     if (id >= 0) {
-                        GlobalValue.setCurrentUserId(id);
-                        GlobalValue.setCurrentUserName(username);
+                        DifferentIdsAndUtilities.setCurrentUserId(id);
+                        DifferentIdsAndUtilities.setCurrentUserName(username);
                         Intent unitIntent = new Intent(getApplicationContext(), MainMenuActivity.class);
                         startActivity(unitIntent);
                     }
@@ -120,8 +122,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(UserRepo.getInfoByName(username, getApplicationContext()) == null){
                     return;
                 }
-                GlobalValue.setCurrentUserName(username);
-                GlobalValue.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username, getApplicationContext())[2]));
+                DifferentIdsAndUtilities.setCurrentUserName(username);
+                DifferentIdsAndUtilities.setCurrentUserId(Integer.parseInt(UserRepo.getInfoByName(username, getApplicationContext())[2]));
                 Intent unitIntent = new Intent(getApplicationContext(), ForgetPasswordActivity.class);
                 startActivity(unitIntent);
             }

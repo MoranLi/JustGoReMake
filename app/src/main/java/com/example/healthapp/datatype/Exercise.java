@@ -1,5 +1,8 @@
 package com.example.healthapp.datatype;
 
+/**
+ * exercise type
+ */
 public class Exercise {
     private int id;
     private String name;

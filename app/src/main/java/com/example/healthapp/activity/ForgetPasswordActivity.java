@@ -5,7 +5,6 @@ package com.example.healthapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,11 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
-import com.example.healthapp.GlobalValue;
 import com.example.healthapp.sql.SqlLiteInterface;
 import com.example.healthapp.sqlInteraction.UserRepo;
 
+/**
+ * chaneg pasword
+ */
 public class ForgetPasswordActivity extends AppCompatActivity {
 
     private String securityAnswer;
@@ -32,7 +34,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SqlLiteInterface.getInstance(this);
         setContentView(R.layout.activity_forget_password);
-        String [] qa = UserRepo.getInfoByName(GlobalValue.getCurrentUserName(), getApplicationContext());
+        String [] qa = UserRepo.getInfoByName(DifferentIdsAndUtilities.getCurrentUserName(), getApplicationContext());
         ((TextView)findViewById(R.id.security_question_show)).setText(qa[0]);
         securityAnswer = qa[1];
         ((Button)findViewById(R.id.changePassword)).setOnClickListener(updatePassword());

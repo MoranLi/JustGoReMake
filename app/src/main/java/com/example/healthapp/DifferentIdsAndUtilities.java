@@ -7,7 +7,7 @@ package com.example.healthapp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class GlobalValue {
+public class DifferentIdsAndUtilities {
     /**
      * user id for current user
      */
@@ -28,9 +28,14 @@ public class GlobalValue {
      * weight id for next weight
      */
     private static int currentDietId = 0;
-
+    /**
+     * exericse daily id for next exercise record
+     */
     private static int currentExerciseDailyId = 0;
 
+    /**
+     * getters and increment by 1
+     */
     public static int getCurrentWeightId() {
         return currentWeightId+=1;
     }
@@ -40,7 +45,7 @@ public class GlobalValue {
     }
 
     public static void setCurrentUserId(int currentUserId) {
-        GlobalValue.currentUserId = currentUserId;
+        DifferentIdsAndUtilities.currentUserId = currentUserId;
     }
 
     public static int getCurrentMaxUserId() {
@@ -52,7 +57,7 @@ public class GlobalValue {
     }
 
     public static void setCurrentUserName(String currentUserName) {
-        GlobalValue.currentUserName = currentUserName;
+        DifferentIdsAndUtilities.currentUserName = currentUserName;
     }
 
     public static int getCurrentDietId() {

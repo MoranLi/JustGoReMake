@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.datatype.User;
-import com.example.healthapp.GlobalValue;
 import com.example.healthapp.sql.SqlLiteInterface;
 
 import java.util.ArrayList;
@@ -177,9 +177,9 @@ public class UserRepo {
     public static void updatePassword(String password, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
         values.put("password",password);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
     /**
@@ -190,9 +190,9 @@ public class UserRepo {
     public static void updateHeight(Double height, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
         values.put("height",height);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
     /**
@@ -203,9 +203,9 @@ public class UserRepo {
     public static void updateGender(String gender, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
         values.put("gender",gender);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
     /**
@@ -216,9 +216,9 @@ public class UserRepo {
     public static void updateName(String name, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
         values.put("name",name);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
     /**
@@ -229,9 +229,9 @@ public class UserRepo {
     public static void updateSq(String sq, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
         values.put("question",sq);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
     /**
@@ -242,9 +242,9 @@ public class UserRepo {
     public static void updateAnswer(String sq, Context context) {
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
-        values.put("id", GlobalValue.getCurrentUserId());
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
         values.put("answer",sq);
-        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(GlobalValue.getCurrentUserId()) });
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
 }

@@ -17,10 +17,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * recommodation page
+ */
 public class RecommdationActivity extends AppCompatActivity {
 
     /**
-     * create
+     * create component
      * @param savedInstanceState
      */
     @Override

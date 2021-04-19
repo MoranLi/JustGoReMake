@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.example.healthapp.R;
 
+/**
+ * show food exercise detail
+ */
 public class ShowFoodActivity extends AppCompatActivity {
 
     /**

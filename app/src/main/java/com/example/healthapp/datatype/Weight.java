@@ -3,6 +3,9 @@
  */
 package com.example.healthapp.datatype;
 
+/**
+ * weight type
+ */
 public class Weight {
     private int id;
     private int userId;

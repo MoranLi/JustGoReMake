@@ -10,14 +10,17 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
 import com.example.healthapp.datatype.Weight;
-import com.example.healthapp.GlobalValue;
 import com.example.healthapp.sqlInteraction.UserRepo;
 import com.example.healthapp.sqlInteraction.WeightRepo;
 
 import java.util.Date;
 
+/**
+ * change user info
+ */
 public class UserInfoActivity extends AppCompatActivity {
 
     private Button submit;
@@ -55,8 +58,8 @@ public class UserInfoActivity extends AppCompatActivity {
                 if(newWeight.length() != 0){
                     Weight w = new Weight();
                     w.setDate(new Date().toString());
-                    w.setUserId(GlobalValue.getCurrentUserId());
-                    w.setId(GlobalValue.getCurrentWeightId());
+                    w.setUserId(DifferentIdsAndUtilities.getCurrentUserId());
+                    w.setId(DifferentIdsAndUtilities.getCurrentWeightId());
                     w.setWeight(Double.parseDouble(newWeight));
                     WeightRepo.insert(getApplicationContext(),w);
                 }

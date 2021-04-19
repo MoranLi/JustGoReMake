@@ -1,5 +1,8 @@
 package com.example.healthapp.datatype;
 
+/**
+ * diet type
+ */
 public class Diet {
     private int id;
     private int foodId;

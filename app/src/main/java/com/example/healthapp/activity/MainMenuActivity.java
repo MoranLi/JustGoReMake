@@ -15,6 +15,9 @@ import com.example.healthapp.R;
 import com.example.healthapp.sqlInteraction.ExerciseRepo;
 import com.example.healthapp.sqlInteraction.FoodRepo;
 
+/**
+ * main menu page
+ */
 public class MainMenuActivity extends AppCompatActivity {
 
     /**

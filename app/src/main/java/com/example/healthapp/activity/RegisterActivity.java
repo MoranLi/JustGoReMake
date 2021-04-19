@@ -15,15 +15,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
 import com.example.healthapp.datatype.User;
 import com.example.healthapp.datatype.Weight;
-import com.example.healthapp.GlobalValue;
 import com.example.healthapp.sqlInteraction.UserRepo;
 import com.example.healthapp.sqlInteraction.WeightRepo;
 
 import java.util.Date;
 
+/**
+ * register page
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText name;
@@ -76,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 user = new User();
                 Weight w  = new Weight();
-                int userId = GlobalValue.getCurrentMaxUserId();
+                int userId = DifferentIdsAndUtilities.getCurrentMaxUserId();
                 user.setId(userId);
                 w.setUserId(userId);
                 user.setName(name.getText().toString());
@@ -122,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "weight can not be negative", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                w.setId(GlobalValue.getCurrentWeightId());
+                w.setId(DifferentIdsAndUtilities.getCurrentWeightId());
                 w.setDate(new Date().toString());
                 w.setWeight(Double.parseDouble(weight.getText().toString()));
                 WeightRepo.insert(getApplicationContext(),w);

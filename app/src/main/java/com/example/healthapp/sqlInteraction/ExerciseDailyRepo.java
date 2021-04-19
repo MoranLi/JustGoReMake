@@ -4,17 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.healthapp.GlobalValue;
-import com.example.healthapp.datatype.Diet;
+import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.datatype.ExerciseDaily;
 import com.example.healthapp.sql.SqlLiteInterface;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class ExerciseDailyRepo {
     /**
-     * insert
+     * insert record
      * @param context
      * @param diet
      * @return
@@ -38,9 +34,9 @@ public class ExerciseDailyRepo {
     public static ExerciseDaily createExerciseDaily(int exerciseId){
         ExerciseDaily e = new ExerciseDaily();
         e.setExerciseId(exerciseId);
-        e.setId(GlobalValue.getCurrentExerciseDailyId());
-        e.setUserId(GlobalValue.getCurrentUserId());
-        e.setDate(GlobalValue.currentDate());
+        e.setId(DifferentIdsAndUtilities.getCurrentExerciseDailyId());
+        e.setUserId(DifferentIdsAndUtilities.getCurrentUserId());
+        e.setDate(DifferentIdsAndUtilities.currentDate());
         return e;
     }
 }
