@@ -247,4 +247,17 @@ public class UserRepo {
         db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
     }
 
+    /**
+     * set target weigth of user
+     * @param target weight
+     * @param context
+     */
+    public static void updateTarget(double target, Context context) {
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
+        ContentValues values = new ContentValues();
+        values.put("id", DifferentIdsAndUtilities.getCurrentUserId());
+        values.put("target",target);
+        db.update("user", values, "id" + "= ?", new String[] { String.valueOf(DifferentIdsAndUtilities.getCurrentUserId()) });
+    }
+
 }

@@ -97,7 +97,7 @@ public class SqlLiteInterface extends SQLiteOpenHelper {
     private static String [] doCreateTableString(){
         String [] creating = new String [6];
         creating[0] =  "create table food (id int primary key not null, user_id int not null, category int not null, name char(50) not null, protein numeric not null, fat numeric not null, cholesterol numeric not null, calories numeric not null);";
-        creating[1] = "create table user (id int primary key not null, name char(50) not null, password char(15) not null, height numeric not null, gender char(1) not null, birthday varchar(8) not null, question char(50) not null, answer char(50) not null);";
+        creating[1] = "create table user (id int primary key not null, name char(50) not null, password char(15) not null, height numeric not null, gender char(1) not null, birthday varchar(8) not null, question char(50) not null, answer char(50) not null, target numeric);";
         creating[2] = "create table weight (id int primary key not null, user_id int not null, date date not null, weight numeric not null);";
         creating[3] = "create table diet (id id int primary key not null, food_id int not null, user_id int not null, date date not null);";
         creating[4] = "create table exerciseDaily (id int primary key not null, exercise_id int not null, user_id int not null, date date not null);";
