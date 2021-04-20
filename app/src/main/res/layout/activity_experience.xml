@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".activity.ExperienceActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:text="Share Experience"
+            android:textSize="50dp"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"></TextView>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Any Suggestion ?"
+            android:textSize="30dp"></TextView>
+
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="400dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/back"
+            ></EditText>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:text="Submit"
+            android:textSize="20dp"></Button>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
