@@ -35,6 +35,7 @@ public class MainMenuActivity extends AppCompatActivity {
         ((Button)findViewById(com.example.healthapp.R.id.go_to_weight)).setOnClickListener(addWeight());
         ((Button)findViewById(com.example.healthapp.R.id.go_to_recommdation)).setOnClickListener(goRecommdation());
         ((Button)findViewById(com.example.healthapp.R.id.go_to_user_info)).setOnClickListener(changeProfile());
+        ((Button)findViewById(R.id.go_to_dietHistory)).setOnClickListener(dietHistory());
     }
 
     /**
@@ -102,6 +103,16 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent unitIntent = new Intent(getApplicationContext(), UserInfoActivity.class);
+                startActivity(unitIntent);
+            }
+        };
+    }
+
+    private View.OnClickListener dietHistory(){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent unitIntent = new Intent(getApplicationContext(), DietHistoryActivity.class);
                 startActivity(unitIntent);
             }
         };

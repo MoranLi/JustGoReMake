@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
 import com.example.healthapp.sql.SqlLiteInterface;
+import com.example.healthapp.sqlInteraction.DietRepo;
 import com.example.healthapp.sqlInteraction.UserRepo;
+import com.example.healthapp.sqlInteraction.WeightRepo;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_activivty);
         SqlLiteInterface.getInstance(this);
         UserRepo.addAdminUser(this);
+        WeightRepo.addAdminWeight(this);
+        DietRepo.addDefaultDiet(this);
         login = (Button)findViewById(R.id.login);
         login.setOnClickListener(login());
         register = (Button)findViewById(R.id.signup);

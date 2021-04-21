@@ -49,12 +49,12 @@ public class FoodRepo {
         Food aFood = new Food();
         aFood.setId(id);
         aFood.setName(foodname[id]);
-        aFood.setCalories(Math.random());
+        aFood.setCalories(Math.random()*1000+1);
         aFood.setCategory(category);
-        aFood.setCholesterol(Math.random());
-        aFood.setFat(Math.random());
+        aFood.setCholesterol(Math.random()*1000+1);
+        aFood.setFat(Math.random()*1000+1);
         aFood.setUserId(0);
-        aFood.setProtein(Math.random());
+        aFood.setProtein(Math.random()*1000+1);
         return aFood;
     }
 
@@ -70,6 +70,21 @@ public class FoodRepo {
             insert(context, cretaeDefaultFoods(i, i / 4));
         }
         initialized = true;
+    }
+
+    /**
+     * get a type food
+     * @param context
+     * @param id
+     * @return
+     */
+    public static Food getFoodById(Context context, int id){
+        String selectQuery =  "select * from food where id = "+id;
+        HashMap<String, Food> items = getFoodList(context, selectQuery);
+        for(Food f: items.values()){
+            return f;
+        }
+        return null;
     }
 
     /**

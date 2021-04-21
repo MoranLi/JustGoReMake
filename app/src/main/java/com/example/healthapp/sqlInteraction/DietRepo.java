@@ -12,6 +12,39 @@ import com.example.healthapp.sql.SqlLiteInterface;
 import java.util.ArrayList;
 
 public class DietRepo {
+    
+    public static void addDefaultDiet(Context context){
+        Diet diet1 = new Diet();
+        diet1.setId(DifferentIdsAndUtilities.getCurrentDietId());
+        diet1.setUserId(0);
+        diet1.setDate("2021-03-03");
+        diet1.setFoodId(1);
+        insert(context,diet1);
+        Diet diet2 = new Diet();
+        diet2.setId(DifferentIdsAndUtilities.getCurrentDietId());
+        diet2.setUserId(0);
+        diet2.setDate("2021-03-04");
+        diet2.setFoodId(2);
+        insert(context,diet2);
+        Diet diet3 = new Diet();
+        diet3.setId(DifferentIdsAndUtilities.getCurrentDietId());
+        diet3.setUserId(0);
+        diet3.setDate("2021-03-05");
+        diet3.setFoodId(3);
+        insert(context,diet3);
+        Diet diet4 = new Diet();
+        diet4.setId(DifferentIdsAndUtilities.getCurrentDietId());
+        diet4.setUserId(0);
+        diet4.setDate("2021-03-06");
+        diet4.setFoodId(4);
+        insert(context,diet4);
+        Diet diet6 = new Diet();
+        diet6.setId(DifferentIdsAndUtilities.getCurrentDietId());
+        diet6.setUserId(0);
+        diet6.setDate("2021-03-07");
+        diet6.setFoodId(5);
+        insert(context,diet6);
+    }
 
     /**
      * insert new diet data
@@ -52,9 +85,9 @@ public class DietRepo {
      * @param to
      * @return
      */
-    public static ArrayList<Diet> getDietByRange(Context context, String from, String to){
-        String selectQuery = "select * from diet where date between '"
-                + from + "' and '" + to + "' and user_id = " + DifferentIdsAndUtilities.getCurrentUserId();
+    public static ArrayList<Diet> getFoodByRange(Context context, String from, String to){
+        String selectQuery = "select * from diet where date between date('"
+                + from + "') and date('" + to + "') and user_id = " + DifferentIdsAndUtilities.getCurrentUserId() + " order by date";
         ArrayList<Diet> diets = new ArrayList<>();
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -65,6 +98,7 @@ public class DietRepo {
                 d.setUserId(Integer.parseInt(cursor.getString(cursor.getColumnIndex("user_id"))));
                 d.setFoodId(Integer.parseInt(cursor.getString(cursor.getColumnIndex("food_id"))));
                 d.setDate(cursor.getString(cursor.getColumnIndex("date")));
+                diets.add(d);
             } while (cursor.moveToNext());
         }
         cursor.close();
