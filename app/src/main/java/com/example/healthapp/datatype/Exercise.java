@@ -40,4 +40,12 @@ public class Exercise {
     public void setEnergyConsumption(double energy_consumption) {
         this.energyConsumption = energy_consumption;
     }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "name='" + name + '\'' +
+                ", energyConsumption=" + energyConsumption +
+                '}';
+    }
 }
