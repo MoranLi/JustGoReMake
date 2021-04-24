@@ -120,6 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String answerStr = answer.getText().toString();
                 user.setSecurityQuestion(questionStr);
                 user.setSecurityAnswer(answerStr);;
+                user.setTarget(60.0);
                 UserRepo.insert(getApplicationContext(),user);
                 if(Double.parseDouble(weight.getText().toString()) < 0){
                     Toast.makeText(getBaseContext(), "weight can not be negative", Toast.LENGTH_SHORT).show();

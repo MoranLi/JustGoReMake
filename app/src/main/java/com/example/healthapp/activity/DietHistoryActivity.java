@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthapp.DifferentIdsAndUtilities;
 import com.example.healthapp.R;
@@ -28,6 +29,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DietHistoryActivity extends AppCompatActivity {
 
@@ -54,6 +57,9 @@ public class DietHistoryActivity extends AppCompatActivity {
                     if (event == null || !event.isShiftPressed()) {
                         String s = start.getText().toString();
                         String e = end.getText().toString();
+                        if(!checkDate(s,e)){
+                            return true;
+                        }
                         if(e.length() <= 0){
                             setTableDate(s,DifferentIdsAndUtilities.currentDate());
                         }
@@ -77,6 +83,9 @@ public class DietHistoryActivity extends AppCompatActivity {
                     if (event == null || !event.isShiftPressed()) {
                         String s = start.getText().toString();
                         String e = end.getText().toString();
+                        if(!checkDate(s,e)){
+                            return true;
+                        }
                         if(s.length() <= 0){
                             setTableDate("1900-01-01",e);
                         }
@@ -94,6 +103,9 @@ public class DietHistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String s = start.getText().toString();
                 String e = end.getText().toString();
+                if(!checkDate(s,e)){
+                    return;
+                }
                 if(s.length() <= 0){
                     s = "1900-01-01";
                 }
@@ -120,6 +132,9 @@ public class DietHistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String s = start.getText().toString();
                 String e = end.getText().toString();
+                if(!checkDate(s,e)){
+                    return;
+                }
                 if(s.length() <= 0){
                     s = "1900-01-01";
                 }
@@ -179,6 +194,25 @@ public class DietHistoryActivity extends AppCompatActivity {
             tableRow.addView(text2);
             ((TableLayout)findViewById(R.id.dietTableLayout)).addView(tableRow);
         }
+    }
+
+    private boolean checkDate(String s, String e){
+        Pattern inputType = Pattern.compile("^\\d\\d\\d\\d-\\d\\d-\\d\\d$");
+        Matcher sMatcher = inputType.matcher(s);
+        Matcher eMatcher = inputType.matcher(e);
+        if(e.length() > 0) {
+            if (!eMatcher.matches()) {
+                Toast.makeText(getApplicationContext(), "error date, format yyyy-MM-dd", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(s.length() > 0) {
+            if (!sMatcher.matches()) {
+                Toast.makeText(getApplicationContext(), "error date, format yyyy-MM-dd", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
     }
 
 }

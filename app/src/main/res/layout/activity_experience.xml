@@ -32,6 +32,7 @@
             android:layout_height="400dp"
             android:layout_marginLeft="30dp"
             android:background="@drawable/back"
+            android:id="@+id/experience"
             ></EditText>
 
         <Button
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="260dp"
             android:text="Submit"
+            android:id="@+id/submit_experience"
             android:textSize="20dp"></Button>
 
     </LinearLayout>

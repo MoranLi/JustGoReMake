@@ -57,7 +57,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 }
                 if(newWeight.length() != 0){
                     Weight w = new Weight();
-                    w.setDate(new Date().toString());
+                    w.setDate(DifferentIdsAndUtilities.currentDate());
                     w.setUserId(DifferentIdsAndUtilities.getCurrentUserId());
                     w.setId(DifferentIdsAndUtilities.getCurrentWeightId());
                     w.setWeight(Double.parseDouble(newWeight));

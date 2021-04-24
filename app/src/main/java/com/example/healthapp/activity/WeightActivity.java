@@ -38,6 +38,7 @@ public class WeightActivity extends AppCompatActivity {
                     Weight w = new Weight();
                     w.setUserId(DifferentIdsAndUtilities.getCurrentUserId());
                     w.setId(DifferentIdsAndUtilities.getCurrentWeightId());
+                    w.setDate(DifferentIdsAndUtilities.currentDate());
                     w.setWeight(Double.parseDouble(newWeight));
                     if(!WeightRepo.existToday(getApplicationContext())){
                         WeightRepo.insert(getApplicationContext(),w);

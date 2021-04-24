@@ -34,6 +34,11 @@ public class DifferentIdsAndUtilities {
     private static int currentExerciseDailyId = 0;
 
     /**
+     * id for experience
+     */
+    private static int currentExperienceId = 0;
+
+    /**
      * getters and increment by 1
      */
     public static int getCurrentWeightId() {
@@ -66,6 +71,10 @@ public class DifferentIdsAndUtilities {
 
     public static int getCurrentExerciseDailyId() {
         return currentExerciseDailyId+=1;
+    }
+
+    public static int getCurrentExperienceId() {
+        return currentExperienceId+=1;
     }
 
     /**

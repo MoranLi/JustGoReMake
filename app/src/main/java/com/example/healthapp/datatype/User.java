@@ -15,6 +15,7 @@ public class User {
     private String birthday;
     private String securityQuestion;
     private String securityAnswer;
+    private double target;
 
     public int getId() {
         return id;
@@ -78,5 +79,13 @@ public class User {
 
     public void setSecurityAnswer(String securityAnswer) {
         this.securityAnswer = securityAnswer;
+    }
+
+    public double getTarget() {
+        return target;
+    }
+
+    public void setTarget(double target) {
+        this.target = target;
     }
 }

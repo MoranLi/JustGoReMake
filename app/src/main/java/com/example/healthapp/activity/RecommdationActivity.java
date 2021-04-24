@@ -12,6 +12,7 @@ import com.example.healthapp.datatype.Food;
 import com.example.healthapp.sqlInteraction.DietRepo;
 import com.example.healthapp.sqlInteraction.ExerciseRepo;
 import com.example.healthapp.sqlInteraction.FoodRepo;
+import com.example.healthapp.sqlInteraction.UserRepo;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,12 +31,17 @@ public class RecommdationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.healthapp.R.layout.activity_recommdation);
-        int foodId = DietRepo.getMinIntake(this);
+        Double target = Double.parseDouble(UserRepo.getGoal(getApplicationContext()));
+        int foodId = 0;
+        if(target < 20){
+            foodId = 1;
+        }
         HashMap<String, Food> foods = FoodRepo.getDefaultFoodList(this);
         HashMap<String, Exercise> exercises = ExerciseRepo.getDefaultExerciseList(this);
         for(Food f: foods.values()){
-            if (f.getId() == foodId){
+            if (f.getCategory() == foodId){
                 ((TextView)findViewById(R.id.food_recomm)).setText("Your show take more "+ f.getName());
+                break;
             }
         }
         Iterator<String> name = exercises.keySet().iterator();

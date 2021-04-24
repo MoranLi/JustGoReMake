@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.example.healthapp.R;
 import com.example.healthapp.datatype.Weight;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -30,6 +31,10 @@ public class WeightGraphActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(points);
+        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+        staticLabelsFormatter.setHorizontalLabels(getIntent().getStringArrayExtra("dates"));
+        graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
         graph.addSeries(series);
+        graph.setMinimumWidth(360*weight.length);
     }
 }

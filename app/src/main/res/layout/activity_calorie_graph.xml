@@ -6,14 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".activity.CalorieGraphActivity">
 
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <com.jjoe64.graphview.GraphView
+        android:fillViewport="true"
+        >
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:id="@+id/calorie_graph_page" />
-    </LinearLayout>
+            android:layout_height="match_parent">
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="wrap_content"
+                android:layout_height="200dip"
+                android:id="@+id/calorie_graph_page" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

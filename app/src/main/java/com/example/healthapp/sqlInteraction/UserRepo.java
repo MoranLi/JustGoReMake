@@ -32,6 +32,7 @@ public class UserRepo {
         admin.setBirthday("19991231");
         admin.setSecurityQuestion("admin?");
         admin.setSecurityAnswer("admin");
+        admin.setTarget(60.0);
         return admin;
     }
 
@@ -59,6 +60,7 @@ public class UserRepo {
         values.put("birthday",user.getBirthday());
         values.put("question",user.getSecurityQuestion());
         values.put("answer",user.getSecurityAnswer());
+        values.put("target",user.getTarget());
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         long userId = db.insert("user", null, values);
         return (int) userId;
@@ -112,6 +114,7 @@ public class UserRepo {
                 user.put("birthday",cursor.getString(cursor.getColumnIndex("birthday")));
                 user.put("question",cursor.getString(cursor.getColumnIndex("question")));
                 user.put("answer", cursor.getString(cursor.getColumnIndex("answer")));
+                user.put("target",cursor.getString(cursor.getColumnIndex("target")));
                 userList.add(user);
 
             } while (cursor.moveToNext());
@@ -141,6 +144,24 @@ public class UserRepo {
             return null;
         }
     }
+
+    /**
+     * get target user
+     * @param context
+     * @return
+     */
+    public static String getGoal(Context context){
+        SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
+        String selectQuery =  "select * from user where id = \"" + DifferentIdsAndUtilities.getCurrentUserId() + "\"";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            return cursor.getString(cursor.getColumnIndex("target"));
+        }
+        else{
+            return null;
+        }
+    }
+
 
     /**
      * get id user

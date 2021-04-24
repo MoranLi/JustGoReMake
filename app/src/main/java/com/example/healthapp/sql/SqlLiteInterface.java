@@ -95,13 +95,14 @@ public class SqlLiteInterface extends SQLiteOpenHelper {
      * create all the table
      */
     private static String [] doCreateTableString(){
-        String [] creating = new String [6];
+        String [] creating = new String [7];
         creating[0] =  "create table food (id int primary key not null, user_id int not null, category int not null, name char(50) not null, protein numeric not null, fat numeric not null, cholesterol numeric not null, calories numeric not null);";
         creating[1] = "create table user (id int primary key not null, name char(50) not null, password char(15) not null, height numeric not null, gender char(1) not null, birthday varchar(8) not null, question char(50) not null, answer char(50) not null, target numeric);";
         creating[2] = "create table weight (id int primary key not null, user_id int not null, date date not null, weight numeric not null);";
         creating[3] = "create table diet (id id int primary key not null, food_id int not null, user_id int not null, date date not null);";
         creating[4] = "create table exerciseDaily (id int primary key not null, exercise_id int not null, user_id int not null, date date not null);";
         creating[5] = "create table exercise (id int primary key not null, category int not null, name char(20) not null, energy_consumption numeric not null);";
+        creating[6] = "create table experience (id int primary key not null, experience text not null, date date not null);";
         return creating;
     }
 
@@ -109,13 +110,14 @@ public class SqlLiteInterface extends SQLiteOpenHelper {
      * delete all the table
      */
     private static String [] dropTable(){
-        String [] droping = new String [6];
+        String [] droping = new String [7];
         droping[0] = "drop table if exists food;";
         droping[1] = "drop table if exists user;";
         droping[2] = "drop table if exists weight;";
         droping[3] = "drop table if exists diet;";
         droping[4] = "drop table if exists exerciseDaily;";
         droping[5] = "drop table if exists exercise;";
+        droping[6] = "drop table if exists experience;";
         return droping;
     }
 
