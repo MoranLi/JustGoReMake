@@ -9,6 +9,12 @@ import com.example.healthapp.datatype.Experience;
 import com.example.healthapp.sql.SqlLiteInterface;
 
 public class ExperienceRepo {
+    /**
+     * incert record
+     * @param context
+     * @param experience
+     * @return
+     */
     public static long insert(Context context, Experience experience){
         SQLiteDatabase db = SqlLiteInterface.getInstance(context).getDatabase();
         ContentValues values = new ContentValues();
@@ -17,6 +23,12 @@ public class ExperienceRepo {
         values.put("experience",experience.getExperience());
         return db.insert("experience",null,values);
     }
+
+    /**
+     * create instance
+     * @param experience
+     * @return
+     */
     public static Experience create(String experience){
         Experience e = new Experience();
         e.setId(DifferentIdsAndUtilities.getCurrentExperienceId());

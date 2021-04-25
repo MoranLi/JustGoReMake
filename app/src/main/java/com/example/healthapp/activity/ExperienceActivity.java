@@ -16,6 +16,10 @@ import com.example.healthapp.sqlInteraction.ExperienceRepo;
  */
 public class ExperienceActivity extends AppCompatActivity {
 
+    /**
+     * create and init
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

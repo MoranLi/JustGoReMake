@@ -12,6 +12,10 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class CalorieGraphActivity extends AppCompatActivity {
 
+    /**
+     * cretae and init grqph
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

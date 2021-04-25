@@ -38,7 +38,10 @@ public class DietHistoryActivity extends AppCompatActivity {
     EditText end;
 
 
-
+    /**
+     * cretae and init text
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,6 +171,11 @@ public class DietHistoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * set date diet in text
+     * @param start
+     * @param end
+     */
     public void setTableDate(String start, String end){
         ((TableLayout)findViewById(R.id.dietTableLayout)).removeAllViews();
         ArrayList<Diet> diets = DietRepo.getFoodByRange(this, start, end);
@@ -196,6 +204,12 @@ public class DietHistoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * check text valid
+     * @param s
+     * @param e
+     * @return
+     */
     private boolean checkDate(String s, String e){
         Pattern inputType = Pattern.compile("^\\d\\d\\d\\d-\\d\\d-\\d\\d$");
         Matcher sMatcher = inputType.matcher(s);

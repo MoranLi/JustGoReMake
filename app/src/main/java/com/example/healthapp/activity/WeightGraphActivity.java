@@ -16,6 +16,10 @@ import java.util.ArrayList;
 
 public class WeightGraphActivity extends AppCompatActivity {
 
+    /**
+     * cretae and init grqph
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
